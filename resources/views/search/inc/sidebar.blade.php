@@ -4,7 +4,7 @@
     $tmpExplode = explode('?', $fullUrl);
     $fullUrlNoParams = current($tmpExplode);
 ?>
-<div class="col-md-3 page-sidebar mobile-filter-sidebar pb-4 m-1 m-2 m-3 m-4 m-5 p-1 p-2 p-3 p-4 p-5">
+<div class="col-md-3 page-sidebar mobile-filter-sidebar pb-4">
 	<aside>
 		<div class="sidebar-modern-inner enable-long-words">
 			
