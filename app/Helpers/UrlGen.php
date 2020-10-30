@@ -165,6 +165,7 @@ class UrlGen
 				$url = '#';
 			}
 		} else {
+			dd ("this is level 0");
 			if (isset($entry->slug)) {
 				$attr = [
 					'countryCode' => $countryCode,
