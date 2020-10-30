@@ -108,6 +108,11 @@ class Category extends BaseModel
 		
 		static::addGlobalScope(new ActiveScope());
 	}
+
+	public static function getFieldId($catName){
+		$catId = Category::where(['name', $catName])->get('id')[0].id;
+		dd ($catId);
+	}
 	
 	/**
 	 * Return the sluggable configuration array for this model.

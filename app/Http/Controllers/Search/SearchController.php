@@ -17,6 +17,7 @@ namespace App\Http\Controllers\Search;
 
 use App\Http\Controllers\Search\Traits\PreSearchTrait;
 use App\Models\CategoryField;
+use App\Models\Category;
 use Torann\LaravelMetaTags\Facades\MetaTag;
 
 class SearchController extends BaseController
@@ -36,10 +37,11 @@ class SearchController extends BaseController
 	public function index()
 	{
 		view()->share('isIndexSearch', $this->isIndexSearch);
-		var_dump(request()->filled('c'));
-		var_dump(request()->get('c')); exit;
+
 		// Pre-Search
 		if (request()->filled('c')) {
+			Category::getFieldId(request()->get('c'));
+			exit;
 			if (request()->filled('sc')) {
 				$this->getCategory(request()->get('c'), request()->get('sc'));
 				
