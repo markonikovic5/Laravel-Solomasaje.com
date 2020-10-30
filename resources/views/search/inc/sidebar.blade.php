@@ -158,8 +158,8 @@
 								$locationParams = [
 									'l'  => $city->id,
 									'r'  => '',
-									'c'  => (isset($cat)) ? $cat->tid : '',
-									'sc' => (isset($subCat)) ? $subCat->tid : '',
+									'c'  => (isset($cat)) ? $cat->name : '',
+									'sc' => (isset($subCat)) ? $subCat->name : '',
 								];
 							?>
 							<li>
