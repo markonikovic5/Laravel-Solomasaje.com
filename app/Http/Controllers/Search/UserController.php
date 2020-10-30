@@ -58,7 +58,6 @@ class UserController extends BaseController
 	 */
 	public function profile($countryCode, $username = null)
 	{
-		dd ("this is user controller profile");
 		// Check multi-countries site parameters
 		if (!config('settings.seo.multi_countries_urls')) {
 			$username = $countryCode;

@@ -146,7 +146,7 @@
             
             <!-- City -->
 			<div class="block-title has-arrow sidebar-header">
-				<h5>This is left Sidebar<strong><a href="#">{{ t('Locations') }}</a></strong></h5>
+				<h5><strong><a href="#">{{ t('Locations') }}</a></strong></h5>
 			</div>
 			<div class="block-content list-filter locations-list">
 				<ul class="browse-list list-unstyled long-list">

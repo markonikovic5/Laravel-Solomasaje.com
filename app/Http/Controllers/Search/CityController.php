@@ -32,7 +32,6 @@ class CityController extends BaseController
      */
     public function index($countryCode, $cityName, $cityId = null)
     {
-        dd("this is city search controller");
         // Check multi-countries site parameters
         if (!config('settings.seo.multi_countries_urls')) {
             $cityId = $cityName;
