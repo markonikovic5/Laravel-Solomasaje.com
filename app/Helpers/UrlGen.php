@@ -152,8 +152,18 @@ class UrlGen
 		if (is_array($entry)) {
 			$entry = ArrayHelper::toObject($entry);
 		}
-		
-		if ($level == 1) {
+
+		if ($level == 0) {
+			if (isset($entry->slug)) {
+				$attr = [
+					'countryCode' => $countryCode,
+					'catSlug'     => $entry->slug,
+				];
+				$url = lurl(trans('routes.v-search-cat', $attr, $locale), $attr, $locale);
+			} else {
+				$url = '#';
+			}
+		} else if ($level == 1) {
 			if (isset($entry->parent) && isset($entry->parent->slug) && isset($entry->slug)) {
 				$attr = [
 					'countryCode' => $countryCode,
@@ -164,18 +174,8 @@ class UrlGen
 			} else {
 				$url = '#';
 			}
-		} else {
-			if (isset($entry->slug)) {
-				$attr = [
-					'countryCode' => $countryCode,
-					'catSlug'     => $entry->slug,
-				];
-				$url = lurl(trans('routes.v-search-cat', $attr, $locale), $attr, $locale);
-			} else {
-				$url = '#';
-			}
 		}
-		
+				
 		return $url;
 	}
 	
