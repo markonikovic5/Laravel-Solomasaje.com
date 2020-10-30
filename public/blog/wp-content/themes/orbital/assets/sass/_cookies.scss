@@ -1,0 +1,330 @@
+.cookies-window {
+    opacity: 1;
+    transition: opacity 1s ease;
+    //border: 1px solid rgb(92, 114, 145);
+}
+
+.cookies-window.cookies-invisible {
+    opacity: 0
+}
+
+.cookies-animate.cookies-revoke {
+    transition: transform 1s ease
+}
+
+.cookies-animate.cookies-revoke.cookies-top {
+    transform: translateY(-2em)
+}
+
+.cookies-animate.cookies-revoke.cookies-bottom {
+    transform: translateY(2em)
+}
+
+.cookies-animate.cookies-revoke.cookies-active.cookies-bottom,
+.cookies-animate.cookies-revoke.cookies-active.cookies-top,
+.cookies-revoke:hover {
+    transform: translateY(0)
+}
+
+.cookies-grower {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 1s
+}
+
+.cookies-link,
+.cookies-revoke:hover {
+    text-decoration: underline
+}
+
+.cookies-revoke,
+.cookies-window {
+    position: fixed;
+    overflow: hidden;
+    box-sizing: border-box;
+    font-size: 16px;
+    line-height: 1.5em;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    z-index: 10000000;
+}
+
+.cookies-window.cookies-static {
+    position: static
+}
+
+.cookies-window.cookies-floating {
+    padding: 2em;
+    max-width: 24em;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 100%;
+}
+
+.cookies-window.cookies-banner {
+    padding: 1em 1.8em;
+    width: 100%;
+    -ms-flex-direction: row;
+    flex-direction: row
+}
+
+.cookies-revoke {
+    padding: .5em
+}
+
+.cookies-header {
+    font-size: 18px;
+    font-weight: 700
+}
+
+.cookies-btn,
+.cookies-close,
+.cookies-link,
+.cookies-revoke {
+    cursor: pointer
+}
+
+.cookies-link {
+    opacity: .8;
+    display: inline-block;
+    padding: .2em
+}
+
+.cookies-link:hover {
+    opacity: 1
+}
+
+.cookies-link:active,
+.cookies-link:visited {
+    color: initial
+}
+
+.cookies-btn {
+    display: block;
+    padding: .4em .8em;
+    font-size: .9em;
+    font-weight: 700;
+    border-width: 2px;
+    border-style: solid;
+    text-align: center;
+    white-space: nowrap
+}
+
+.cookies-banner .cookies-btn:last-child {
+    min-width: 140px
+}
+
+.cookies-highlight .cookies-btn:first-child {
+    background-color: transparent;
+    border-color: transparent
+}
+
+.cookies-highlight .cookies-btn:first-child:focus,
+.cookies-highlight .cookies-btn:first-child:hover {
+    background-color: transparent;
+    text-decoration: underline
+}
+
+.cookies-close {
+    display: block;
+    position: absolute;
+    top: .5em;
+    right: .5em;
+    font-size: 1.6em;
+    opacity: .9;
+    line-height: .75
+}
+
+.cookies-close:focus,
+.cookies-close:hover {
+    opacity: 1
+}
+
+.cookies-revoke.cookies-top {
+    top: 0;
+    left: 3em;
+    border-bottom-left-radius: .5em;
+    border-bottom-right-radius: .5em
+}
+
+.cookies-revoke.cookies-bottom {
+    bottom: 0;
+    left: 3em;
+    border-top-left-radius: .5em;
+    border-top-right-radius: .5em
+}
+
+.cookies-revoke.cookies-left {
+    left: 3em;
+    right: unset
+}
+
+.cookies-revoke.cookies-right {
+    right: 3em;
+    left: unset
+}
+
+.cookies-top {
+    top: 1em
+}
+
+.cookies-left {
+    left: 1em
+}
+
+.cookies-right {
+    right: 1em
+}
+
+.cookies-bottom {
+    bottom: 1em
+}
+
+.cookies-floating>.cookies-link {
+    margin-bottom: 1em
+}
+
+.cookies-floating .cookies-message {
+    display: block;
+    margin-bottom: 1em
+}
+
+.cookies-window.cookies-floating .cookies-compliance {
+    -ms-flex: 1;
+    flex: 1
+}
+
+.cookies-window.cookies-banner {
+    -ms-flex-align: center;
+    align-items: center
+}
+
+.cookies-banner.cookies-top {
+    left: 0;
+    right: 0;
+    top: 0
+}
+
+.cookies-banner.cookies-bottom {
+    left: 0;
+    right: 0;
+    bottom: 0
+}
+
+.cookies-banner .cookies-message {
+    -ms-flex: 1;
+    flex: 1
+}
+
+.cookies-compliance {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-line-pack: justify;
+    align-content: space-between
+}
+
+.cookies-compliance>.cookies-btn {
+    -ms-flex: 1;
+    flex: 1
+}
+
+.cookies-btn+.cookies-btn {
+    margin-left: .5em
+}
+
+@media print {
+    .cookies-revoke,
+    .cookies-window {
+        display: none
+    }
+}
+
+@media screen and (max-width:900px) {
+    .cookies-btn {
+        white-space: normal
+    }
+}
+
+@media screen and (max-width:414px) and (orientation:portrait),
+screen and (max-width:736px) and (orientation:landscape) {
+    .cookies-window.cookies-top {
+        top: 0
+    }
+    .cookies-window.cookies-bottom {
+        bottom: 0
+    }
+    .cookies-window.cookies-banner,
+    .cookies-window.cookies-left,
+    .cookies-window.cookies-right {
+        left: 0;
+        right: 0
+    }
+    .cookies-window.cookies-banner {
+        -ms-flex-direction: column;
+        flex-direction: column
+    }
+    .cookies-window.cookies-banner .cookies-compliance {
+        -ms-flex: 1;
+        flex: 1
+    }
+    .cookies-window.cookies-floating {
+        max-width: none
+    }
+    .cookies-window .cookies-message {
+        margin-bottom: 1em
+    }
+    .cookies-window.cookies-banner {
+        -ms-flex-align: unset;
+        align-items: unset
+    }
+}
+
+.cookies-floating.cookies-theme-classic {
+    padding: 1.2em;
+    border-radius: 5px
+}
+
+.cookies-floating.cookies-type-info.cookies-theme-classic .cookies-compliance {
+    text-align: center;
+    display: inline;
+    -ms-flex: none;
+    flex: none
+}
+
+.cookies-theme-classic .cookies-btn {
+    border-radius: 5px
+}
+
+.cookies-theme-classic .cookies-btn:last-child {
+    min-width: 140px
+}
+
+.cookies-floating.cookies-type-info.cookies-theme-classic .cookies-btn {
+    display: inline-block
+}
+
+.cookies-theme-edgeless.cookies-window {
+    padding: 0
+}
+
+.cookies-floating.cookies-theme-edgeless .cookies-message {
+    margin: 2em 2em 1.5em
+}
+
+.cookies-banner.cookies-theme-edgeless .cookies-btn {
+    margin: 0;
+    padding: .8em 1.8em;
+    height: 100%
+}
+
+.cookies-banner.cookies-theme-edgeless .cookies-message {
+    margin-left: 1em
+}
+
+.cookies-floating.cookies-theme-edgeless .cookies-btn+.cookies-btn {
+    margin-left: 0
+}

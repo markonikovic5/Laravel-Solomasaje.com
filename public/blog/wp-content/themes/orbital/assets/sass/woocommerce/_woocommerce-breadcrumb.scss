@@ -1,0 +1,18 @@
+.woocommerce-breadcrumb {
+	@include clearfix();
+	margin: 0 0 1em;
+	padding: 0;
+	font-size: 0.625rem;
+	text-transform: uppercase;
+	color: $subtext;
+	text-align: right;
+	a {
+		color: $subtext;
+	}
+}
+.single-product {
+	.woocommerce-breadcrumb {
+		text-align: left;
+		padding: 0 1rem;
+	}
+}

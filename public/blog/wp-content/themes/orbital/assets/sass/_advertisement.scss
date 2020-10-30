@@ -1,0 +1,22 @@
+.banner {
+	max-width: 100%;
+	margin: 1rem 0;
+	padding: 0;
+	text-align: center;
+}
+
+.banner-block {
+	width: 100%;
+}
+
+@media(max-width: $breakpoint-sm){
+	.desktop {
+		display: none;
+	}
+}
+
+@media(min-width: $breakpoint-sm){
+	.mobile {
+		display: none;
+	}
+}

@@ -1,0 +1,45 @@
+.entry-content{
+	flex-basis: 100%;
+	max-width: 100%;
+}
+
+.post-thumbnail {
+	margin-bottom: 2rem;
+	text-align: center;
+}
+
+.no-sidebar .entry-content {
+    flex-basis: 100%;
+    max-width: 100%;
+}
+
+.entry-header {
+	.wp-post-image {
+		width: 100%;
+		margin-bottom: .5rem;
+		border: 1px solid #eee;
+	}
+}
+.entry-related {
+	.entry-related-item {
+		a{
+			display: block;
+		}
+	}
+}
+.entry-content, .entry-footer{
+	max-width: 100%;
+	position: relative;
+}
+.home-shop-section{
+	margin: 1rem 0;
+	.products {
+		margin-bottom: 3rem;
+	}
+}
+.home .entry-content{
+	margin-top: 0;
+}
+.home-section{
+	padding: 2rem 1rem;
+}
