@@ -37,15 +37,12 @@ class SearchController extends BaseController
 	public function index()
 	{
 		view()->share('isIndexSearch', $this->isIndexSearch);
-		
+
 		// Pre-Search
 		if (request()->filled('c')) {
 			$catId = Category::getFieldId(request()->get('c'));
-			count($catId) != 0 ? abort('301') : $catId = $catId[0]->id;
-			dd($catId);
 			if (request()->filled('sc')) {
 				$subCatId = Category::getFieldId(request()->get('sc'));
-				count($subCatId) != 0 ? abort('301') : $subCatId = $subCatId[0]->id;
 				$this->getCategory($catId, $subCatId);
 				
 				// Get Category nested IDs
