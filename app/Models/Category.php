@@ -110,7 +110,8 @@ class Category extends BaseModel
 	}
 
 	public static function getFieldId($catName){
-		return Category::where(['name' => $catName])->get('id')[0]->id;
+		$catId = Category::where(['name' => $catName])->get('id')[0]->id;
+		dd ($catId);
 	}
 	
 	/**
