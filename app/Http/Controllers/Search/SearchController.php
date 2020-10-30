@@ -36,11 +36,7 @@ class SearchController extends BaseController
 	public function index()
 	{
 		view()->share('isIndexSearch', $this->isIndexSearch);
-		var_dump(request()->filled('c'));
-		var_dump(request()->filled('sc'));
-		var_dump(request()->get('c'));
-		var_dump(request()->get('sc'));
-		exit;
+
 		// Pre-Search
 		if (request()->filled('c')) {
 			if (request()->filled('sc')) {
