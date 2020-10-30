@@ -29,6 +29,7 @@ class TagController extends BaseController
 	 */
 	public function index($countryCode, $tag = null)
 	{
+		dd ("this is tag controller");
 		// Check multi-countries site parameters
 		if (!config('settings.seo.multi_countries_urls')) {
 			$tag = $countryCode;
