@@ -79,6 +79,7 @@ class UserController extends BaseController
 	 */
 	private function searchByUserId($userId, $username = null)
 	{
+		dd ("this is usercontroller searchbyUserID");
 		// Search
 		$search = new $this->searchClass();
 		$data = $search->setUser($userId)->fetch();

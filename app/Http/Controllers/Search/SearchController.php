@@ -35,9 +35,9 @@ class SearchController extends BaseController
 	 */
 	public function index()
 	{
+		dd ("this is location search");
 		view()->share('isIndexSearch', $this->isIndexSearch);
 		
-		dd ("this is location search");
 		// Pre-Search
 		if (request()->filled('c')) {
 			if (request()->filled('sc')) {
