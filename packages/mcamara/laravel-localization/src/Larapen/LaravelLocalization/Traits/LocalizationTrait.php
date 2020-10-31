@@ -264,7 +264,6 @@ trait LocalizationTrait
 			&& isset($attributes['id'])
 			&& isset($attributes['username'])
 		) {
-			dd ("this is user");
 			$routePath = trans('routes.v-search-username', [
 				'countryCode' => $countryCode,
 				'username'    => $attributes['username'],
@@ -276,7 +275,6 @@ trait LocalizationTrait
 			Str::contains($url, trans('routes.t-search-company', [], $locale))
 			&& isset($attributes['id'])
 		) {
-			dd ("this is company");
 			$routePath = trans('routes.v-search-company', [
 				'countryCode' => $countryCode,
 				'id'          => $attributes['id'],
@@ -288,7 +286,6 @@ trait LocalizationTrait
 			Str::contains($url, trans('routes.page', [], $locale))
 			&& isset($attributes['slug'])
 		) {
-			dd ("this is pages");
 			$page = self::getPageBySlug($attributes['slug'], $locale);
 			if (!empty($page)) {
 				$routePath = trans('routes.v-page', ['slug' => $page->slug], $locale);
