@@ -72,7 +72,7 @@ trait LocalizationTrait
 							'catSlug'     => $cat->slug,
 						], $locale);
 					}
-					var_dump ($localePath);
+					dd ($localePath);
 					var_dump ($routePath);
 					var_dump ($queryString); exit;
 					$url = app('url')->to($localePath . $routePath) . $queryString;
