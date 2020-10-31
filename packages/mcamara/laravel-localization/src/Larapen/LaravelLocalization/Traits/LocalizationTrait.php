@@ -46,13 +46,13 @@ trait LocalizationTrait
 		// Get the Locale Path
 		$localePath = $this->getLocalePath($locale);
 		
-		dd(Route::currentRouteAction());
 		// Search: Category
 		if (Str::contains(Route::currentRouteAction(), 'Search\CategoryController@index')) {
 			// Get category or sub-category translation
 			if (isset($attributes['catSlug'])) {
 				// Get Category
 				$cat = self::getCategoryBySlug($attributes['catSlug'], $locale);
+				dd ($cat);
 				if (!empty($cat)) {
 					$routePath = '';
 					if (isset($attributes['subCatSlug']) && !empty($attributes['subCatSlug'])) {
