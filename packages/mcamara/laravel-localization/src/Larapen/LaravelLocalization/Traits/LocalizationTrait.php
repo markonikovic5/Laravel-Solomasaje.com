@@ -72,8 +72,9 @@ trait LocalizationTrait
 							'catSlug'     => $cat->slug,
 						], $locale);
 					}
-					dd ($queryString); exit;
+					
 					$url = app('url')->to($localePath . $routePath) . $queryString;
+					dd ($url);
 				}
 			}
 		} // Search: Location - Laravel Routing doesn't support PHP rawurlencode() function
