@@ -159,6 +159,7 @@ class UrlGen
 					'countryCode' => $countryCode,
 					'catSlug'     => $entry->slug,
 				];
+				dd (trans('routes.v-search-cat', $attr, $locale));
 				$url = lurl(trans('routes.v-search-cat', $attr, $locale), $attr, $locale);
 			} else {
 				$url = '#';
