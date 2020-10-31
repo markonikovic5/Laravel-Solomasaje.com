@@ -338,7 +338,7 @@ function lurl($path = null, $attributes = [], $locale = null)
 	if (request()->segment(1) == admin_uri()) {
 		return url($locale . '/' . $path);
 	}
-	
+	dd ($locale);
 	return \Larapen\LaravelLocalization\Facades\LaravelLocalization::getLocalizedURL($locale, $path, $attributes);
 }
 
