@@ -239,7 +239,6 @@ trait LocalizationTrait
 			&& isset($attributes['city'])
 			&& isset($attributes['id'])
 		) {
-			dd ("this is city search");
 			$routePath = trans('routes.v-search-city', [
 				'countryCode' => $countryCode,
 				'city'        => $attributes['city'],
@@ -247,6 +246,7 @@ trait LocalizationTrait
 			], $locale);
 			
 			$url = app('url')->to($localePath . $routePath) . $queryString;
+			dd ($url);
 		} // Search: User (by ID)
 		else if (
 			Str::contains($url, trans('routes.t-search-user', [], $locale))
