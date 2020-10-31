@@ -184,7 +184,7 @@ trait LocalizationTrait
 	{
 		var_dump($locale);
 		var_dump($url);
-		var_dump($attributes);
+		var_dump($attributes); exit;
 		if (empty($locale)) {
 			$locale = $this->getCurrentLocale();
 		}
