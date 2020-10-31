@@ -182,7 +182,9 @@ trait LocalizationTrait
 	 */
 	public function getUrlThroughEnteredRoute($locale = null, $url = null, $attributes = [])
 	{
-		dd ("this is search root");
+		var_dump($locale);
+		var_dump($url);
+		var_dump($attributes);
 		if (empty($locale)) {
 			$locale = $this->getCurrentLocale();
 		}
