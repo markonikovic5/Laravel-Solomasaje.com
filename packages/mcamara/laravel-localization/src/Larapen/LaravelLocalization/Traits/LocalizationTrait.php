@@ -212,6 +212,7 @@ trait LocalizationTrait
 			Str::contains($url, trans('routes.t-search-cat', [], $locale))
 			&& isset($attributes['catSlug'])
 		) {
+			dd ("this is category");
 			$cat = self::getCategoryBySlug($attributes['catSlug'], $locale);
 			if (!empty($cat)) {
 				$routePath = '';
@@ -239,6 +240,7 @@ trait LocalizationTrait
 			&& isset($attributes['city'])
 			&& isset($attributes['id'])
 		) {
+			dd ("this is city");
 			$routePath = trans('routes.v-search-city', [
 				'countryCode' => $countryCode,
 				'city'        => $attributes['city'],
@@ -264,6 +266,7 @@ trait LocalizationTrait
 			&& isset($attributes['id'])
 			&& isset($attributes['username'])
 		) {
+			dd ("this is user");
 			$routePath = trans('routes.v-search-username', [
 				'countryCode' => $countryCode,
 				'username'    => $attributes['username'],
@@ -275,6 +278,7 @@ trait LocalizationTrait
 			Str::contains($url, trans('routes.t-search-company', [], $locale))
 			&& isset($attributes['id'])
 		) {
+			dd ("this is company");
 			$routePath = trans('routes.v-search-company', [
 				'countryCode' => $countryCode,
 				'id'          => $attributes['id'],
@@ -286,6 +290,7 @@ trait LocalizationTrait
 			Str::contains($url, trans('routes.page', [], $locale))
 			&& isset($attributes['slug'])
 		) {
+			dd ("this is pages");
 			$page = self::getPageBySlug($attributes['slug'], $locale);
 			if (!empty($page)) {
 				$routePath = trans('routes.v-page', ['slug' => $page->slug], $locale);
@@ -300,11 +305,11 @@ trait LocalizationTrait
 			&& !preg_match('/.*' . trans('routes.t-search', [], $locale) . '.+/ui', $url)
 			&& !preg_match('/.+' . trans('routes.t-search', [], $locale) . '.*/ui', $url)
 		) {
+			dd ("this is index");
 			$routePath = trans('routes.v-search', ['countryCode' => $countryCode], $locale);
 			
 			$url = app('url')->to($localePath . $routePath) . $queryString;
 		} else {
-			dd ("this is city state");
 			$url = '###' . $url . '###';
 		}
 		
