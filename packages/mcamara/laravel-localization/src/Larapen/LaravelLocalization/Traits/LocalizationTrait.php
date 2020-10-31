@@ -52,7 +52,7 @@ trait LocalizationTrait
 			if (isset($attributes['catSlug'])) {
 				// Get Category
 				$cat = self::getCategoryBySlug($attributes['catSlug'], $locale);
-				dd ($cat);
+				dd ($attributes);
 				if (!empty($cat)) {
 					$routePath = '';
 					if (isset($attributes['subCatSlug']) && !empty($attributes['subCatSlug'])) {
