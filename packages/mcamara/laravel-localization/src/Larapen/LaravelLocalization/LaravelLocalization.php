@@ -299,9 +299,6 @@ class LaravelLocalization
 			}
 		} else {
 			// Get URL through entered Route (Or through entered URL)
-			var_dump($locale);
-			var_dump($url);
-			var_dump($attributes); exit;
 			$url = $this->getUrlThroughEnteredRoute($locale, $url, $attributes);
 			if (!empty($url)) {
 				if (!Str::contains($url, '###') && !Str::contains($url, '{')) {
