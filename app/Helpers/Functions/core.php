@@ -291,8 +291,6 @@ function qsurl($path = null, $inputArray = [], $secure = null, $localized = true
 		if (isset($inputArray['d'])) {
 			unset($inputArray['d']);
 		}
-		var_dump($inputArray);
-		var_dump("this is inputarray");
 		$inputArray = array_filter($inputArray, function($v, $k) {
 			if (in_array($k, ['distance'])) {
 				return !empty($v) || $v == 0;
@@ -300,9 +298,8 @@ function qsurl($path = null, $inputArray = [], $secure = null, $localized = true
 				return !empty($v);
 			}
 		}, ARRAY_FILTER_USE_BOTH);
-		var_dump($inputArray); exit;
 	}
-	
+	dd (config('plugins.domainmapping.installed'));
 	if (!empty($inputArray)) {
 		$url = $url . '?' . httpBuildQuery($inputArray);
 	}
