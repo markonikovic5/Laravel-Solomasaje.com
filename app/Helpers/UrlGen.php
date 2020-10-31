@@ -172,6 +172,7 @@ class UrlGen
 					'city'        => 'city',
 				];
 				$url = lurl(trans('routes.v-search-subCat', $attr, $locale), $attr, $locale);
+				dd ($url);
 			} else {
 				$url = '#';
 			}
