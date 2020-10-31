@@ -182,9 +182,6 @@ trait LocalizationTrait
 	 */
 	public function getUrlThroughEnteredRoute($locale = null, $url = null, $attributes = [])
 	{
-		var_dump($locale);
-		var_dump($url);
-		var_dump($attributes); exit;
 		if (empty($locale)) {
 			$locale = $this->getCurrentLocale();
 		}
@@ -242,6 +239,7 @@ trait LocalizationTrait
 			&& isset($attributes['city'])
 			&& isset($attributes['id'])
 		) {
+			dd ("this is city search");
 			$routePath = trans('routes.v-search-city', [
 				'countryCode' => $countryCode,
 				'city'        => $attributes['city'],
