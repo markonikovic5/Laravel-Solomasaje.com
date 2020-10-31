@@ -265,6 +265,7 @@ class LaravelLocalization
 	 */
 	public function getLocalizedURL($locale = null, $url = null, $attributes = [], $forceDefaultLocation = false)
 	{
+		var_dump ($locale); exit;
 		if ($locale === null) {
 			$locale = $this->getCurrentLocale();
 		}
