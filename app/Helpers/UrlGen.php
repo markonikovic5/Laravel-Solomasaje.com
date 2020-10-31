@@ -158,7 +158,9 @@ class UrlGen
 				$attr = [
 					'countryCode' => $countryCode,
 					'catSlug'     => $entry->slug,
+					'city'        => 'city',
 				];
+				dd (trans('routes.v-search-cat', $attr, $locale));
 
 				$url = lurl(trans('routes.v-search-cat', $attr, $locale), $attr, $locale);
 			} else {
@@ -170,7 +172,6 @@ class UrlGen
 					'countryCode' => $countryCode,
 					'catSlug'     => $entry->parent->slug,
 					'subCatSlug'  => $entry->slug,
-					'city'        => 'city',
 				];
 				$url = lurl(trans('routes.v-search-subCat', $attr, $locale), $attr, $locale);
 			} else {
