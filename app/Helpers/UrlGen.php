@@ -171,7 +171,6 @@ class UrlGen
 					'subCatSlug'  => $entry->slug,
 					'city'        => 'city',
 				];
-				dd (trans('routes.v-search-subCat', $attr, $locale));
 				$url = lurl(trans('routes.v-search-subCat', $attr, $locale), $attr, $locale);
 			} else {
 				$url = '#';
