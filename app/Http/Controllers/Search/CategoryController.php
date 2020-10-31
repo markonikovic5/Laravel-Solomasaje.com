@@ -34,8 +34,7 @@ class CategoryController extends BaseController
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|\Illuminate\View\View
      */
     public function index($countryCode, $catSlug, $subCatSlug = null)
-    {
-        var_dump(!config('settings.seo.multi_countries_urls'));
+    {        
         // Check multi-countries site parameters
         if (!config('settings.seo.multi_countries_urls')) {
             $subCatSlug = $catSlug;
@@ -46,6 +45,7 @@ class CategoryController extends BaseController
 
         // Get Category
         $this->cat = Category::trans()->where('parent_id', 0)->where('slug', '=', $catSlug)->firstOrFail();
+        dd ($this->cat);
         view()->share('cat', $this->cat);
 
         // Get common Data
