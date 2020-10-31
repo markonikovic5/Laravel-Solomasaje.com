@@ -35,6 +35,7 @@ class CategoryController extends BaseController
      */
     public function index($countryCode, $catSlug, $subCatSlug = null)
     {
+        var_dump($countryCode);
         var_dump($catSlug);
         var_dump($subCatSlug);
         // Check multi-countries site parameters
