@@ -35,7 +35,7 @@ class CategoryController extends BaseController
      */
     public function index($countryCode, $catSlug, $subCatSlug = null)
     {
-        dd ($countryCode);
+        dd ($catSlug);
         // Check multi-countries site parameters
         if (!config('settings.seo.multi_countries_urls')) {
             $subCatSlug = $catSlug;
