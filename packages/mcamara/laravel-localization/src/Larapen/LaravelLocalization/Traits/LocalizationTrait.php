@@ -45,7 +45,7 @@ trait LocalizationTrait
 		
 		// Get the Locale Path
 		$localePath = $this->getLocalePath($locale);
-		dd ("this is locale");
+		var_dump("this is locale");
 		var_dump($locale);
 		var_dump($localePath); exit;
 		
