@@ -301,6 +301,7 @@ function qsurl($path = null, $inputArray = [], $secure = null, $localized = true
 	}
 
 	if (!empty($inputArray)) {
+		dd ($url);
 		$url = $url . '?' . httpBuildQuery($inputArray);
 	}
 	return $url;
