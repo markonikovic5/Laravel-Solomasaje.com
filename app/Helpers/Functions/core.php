@@ -302,7 +302,6 @@ function qsurl($path = null, $inputArray = [], $secure = null, $localized = true
 
 	if (!empty($inputArray)) {
 		$url = $url . '?' . httpBuildQuery($inputArray);
-		dd($url);
 	}
 	
 	return $url;
@@ -319,6 +318,7 @@ function httpBuildQuery($array)
 	}
 	
 	$queryString = http_build_query($array);
+	dd ($queryString);
 	$queryString = str_replace(['%5B', '%5D'], ['[', ']'], $queryString);
 	
 	return $queryString;
