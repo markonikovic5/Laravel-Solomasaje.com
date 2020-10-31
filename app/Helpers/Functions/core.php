@@ -1303,7 +1303,7 @@ function mb_parse_url($url, $component = -1)
 	}, $url);
 	
 	$parts = parse_url($encodedUrl, $component);
-	dd ($parts);
+	
 	if ($parts === false) {
 		throw new \InvalidArgumentException('Malformed URL: ' . $url);
 	}
@@ -1313,7 +1313,7 @@ function mb_parse_url($url, $component = -1)
 			$parts[$name] = urldecode($value);
 		}
 	}
-	
+	dd ($parts);
 	return $parts;
 }
 
