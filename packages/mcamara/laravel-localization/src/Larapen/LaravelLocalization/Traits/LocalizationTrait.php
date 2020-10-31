@@ -240,7 +240,6 @@ trait LocalizationTrait
 			&& isset($attributes['city'])
 			&& isset($attributes['id'])
 		) {
-			dd ("this is city");
 			$routePath = trans('routes.v-search-city', [
 				'countryCode' => $countryCode,
 				'city'        => $attributes['city'],
