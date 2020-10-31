@@ -278,10 +278,6 @@ function getSubDomainName()
  */
 function qsurl($path = null, $inputArray = [], $secure = null, $localized = true)
 {
-	var_dump($path);
-	var_dump($inputArray);
-	var_dump($secure);
-	var_dump($localized); exit;
 	if ($localized) {
 		if (preg_match('#^http(s)?://#', $path)) {
 			$path = mb_parse_url($path, PHP_URL_PATH);
@@ -289,6 +285,7 @@ function qsurl($path = null, $inputArray = [], $secure = null, $localized = true
 		$url = lurl($path);
 	} else {
 		$url = app('url')->to($path, $secure);
+		dd ($url);
 	}
 	
 	if (config('plugins.domainmapping.installed')) {
