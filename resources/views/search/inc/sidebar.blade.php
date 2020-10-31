@@ -171,7 +171,7 @@
 									</strong>
 								@else
 									<a href="{!! qsurl($fullUrlLocation, array_merge(request()->except(['page'] + array_keys($locationParams)), $locationParams), null, false) !!}" title="{{ $city->name }}">
-										{{ $city->id }}
+										{{ $city->name }}
 									</a>
 								@endif
 							</li>
