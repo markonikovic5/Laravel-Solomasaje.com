@@ -45,7 +45,7 @@ trait LocalizationTrait
 		
 		// Get the Locale Path
 		$localePath = $this->getLocalePath($locale);
-		dd ($localePath); exit;
+		dd ($locale); exit;
 		
 		// Search: Category
 		if (Str::contains(Route::currentRouteAction(), 'Search\CategoryController@index')) {
