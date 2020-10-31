@@ -45,7 +45,6 @@ class CategoryController extends BaseController
 
         // Get Category
         $this->cat = Category::trans()->where('parent_id', 0)->where('slug', '=', $catSlug)->firstOrFail();
-        dd ($this->cat);
         view()->share('cat', $this->cat);
 
         // Get common Data
