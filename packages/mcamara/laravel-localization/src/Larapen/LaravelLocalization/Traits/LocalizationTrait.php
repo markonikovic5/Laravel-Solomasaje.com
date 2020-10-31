@@ -197,7 +197,7 @@ trait LocalizationTrait
 		// Get the Query String
 		$queryString = '';
 		$parts = mb_parse_url($url);
-		dd (isset($parts['query']));
+
 		if (isset($parts['query'])) {
 			$queryString = '?' . (is_array($parts['query']) || is_object($parts['query'])) ? httpBuildQuery($parts['query']) : $parts['query'];
 		}
