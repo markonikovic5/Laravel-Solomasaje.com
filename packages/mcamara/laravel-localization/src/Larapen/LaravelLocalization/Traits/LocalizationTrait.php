@@ -74,7 +74,6 @@ trait LocalizationTrait
 					}
 					
 					$url = app('url')->to($localePath . $routePath) . $queryString;
-					dd ($url);
 				}
 			}
 		} // Search: Location - Laravel Routing doesn't support PHP rawurlencode() function
