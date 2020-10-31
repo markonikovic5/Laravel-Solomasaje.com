@@ -42,10 +42,11 @@ trait LocalizationTrait
 		
 		// Get the Country Code
 		$countryCode = $this->getCountryCode($attributes);
-		dd ($countryCode);
+		
 		// Get the Locale Path
 		$localePath = $this->getLocalePath($locale);
 		
+		dd(Route::currentRouteAction());
 		// Search: Category
 		if (Str::contains(Route::currentRouteAction(), 'Search\CategoryController@index')) {
 			// Get category or sub-category translation
