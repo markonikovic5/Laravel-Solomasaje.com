@@ -305,7 +305,6 @@ trait LocalizationTrait
 			&& !preg_match('/.*' . trans('routes.t-search', [], $locale) . '.+/ui', $url)
 			&& !preg_match('/.+' . trans('routes.t-search', [], $locale) . '.*/ui', $url)
 		) {
-			dd ("this is index");
 			$routePath = trans('routes.v-search', ['countryCode' => $countryCode], $locale);
 			
 			$url = app('url')->to($localePath . $routePath) . $queryString;
