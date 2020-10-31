@@ -207,8 +207,6 @@ trait LocalizationTrait
 		// Work with URL Path (without URL Protocol & Host)
 		$url = $this->getUrlPath($url, $locale);
 		
-		dd ("this is end url define");
-
 		// Search: Category
 		if (
 			Str::contains($url, trans('routes.t-search-cat', [], $locale))
@@ -306,6 +304,7 @@ trait LocalizationTrait
 			
 			$url = app('url')->to($localePath . $routePath) . $queryString;
 		} else {
+			dd ("this is city state");
 			$url = '###' . $url . '###';
 		}
 		
