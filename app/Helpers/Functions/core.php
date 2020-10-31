@@ -1313,7 +1313,7 @@ function mb_parse_url($url, $component = -1)
 			$parts[$name] = urldecode($value);
 		}
 	}
-	dd ($parts);
+	
 	return $parts;
 }
 
