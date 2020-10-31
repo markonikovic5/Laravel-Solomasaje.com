@@ -1301,9 +1301,9 @@ function mb_parse_url($url, $component = -1)
 	$encodedUrl = preg_replace_callback('%[^:/@?&=#]+%usD', function ($matches) {
 		return urlencode($matches[0]);
 	}, $url);
-	dd ($encodedUrl);
-	$parts = parse_url($encodedUrl, $component);
 	
+	$parts = parse_url($encodedUrl, $component);
+	dd ($parts);
 	if ($parts === false) {
 		throw new \InvalidArgumentException('Malformed URL: ' . $url);
 	}
