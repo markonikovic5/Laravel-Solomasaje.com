@@ -318,9 +318,8 @@ function httpBuildQuery($array)
 	}
 	
 	$queryString = http_build_query($array);
-	dd ($queryString);
 	$queryString = str_replace(['%5B', '%5D'], ['[', ']'], $queryString);
-	
+	dd ($queryString);
 	return $queryString;
 }
 
