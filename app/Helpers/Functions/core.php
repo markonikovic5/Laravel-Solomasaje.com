@@ -299,9 +299,12 @@ function qsurl($path = null, $inputArray = [], $secure = null, $localized = true
 			}
 		}, ARRAY_FILTER_USE_BOTH);
 	}
-	dd (config('plugins.domainmapping.installed'));
+
 	if (!empty($inputArray)) {
+		var_dump($url);
+		var_dump("this is url");
 		$url = $url . '?' . httpBuildQuery($inputArray);
+		var_dump($url); exit;
 	}
 	
 	return $url;
