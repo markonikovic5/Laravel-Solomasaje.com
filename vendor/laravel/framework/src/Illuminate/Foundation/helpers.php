@@ -874,7 +874,7 @@ if (! function_exists('trans')) {
         if (is_null($key)) {
             return app('translator');
         }
-        //dd ($key);
+
         return app('translator')->trans($key, $replace, $locale);
     }
 }
