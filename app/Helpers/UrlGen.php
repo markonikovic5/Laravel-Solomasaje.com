@@ -160,7 +160,7 @@ class UrlGen
 					'catSlug'     => $entry->slug,
 					'city'        => 'city',
 				];
-				dd (trans('routes.v-search-cat', $attr, $locale));
+				//dd (trans('routes.v-search-cat', $attr, $locale));
 
 				$url = lurl(trans('routes.v-search-cat', $attr, $locale), $attr, $locale);
 			} else {
