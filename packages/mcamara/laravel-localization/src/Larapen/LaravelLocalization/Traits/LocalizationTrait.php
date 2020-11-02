@@ -216,9 +216,9 @@ trait LocalizationTrait
 			) {
 
 			$cat = self::getCategoryBySlug($attributes['catSlug'], $locale);
-			if (isset($attributes['location'])) {
-				dd ($attributes['catSlug']);
-			}			
+			// if (isset($attributes['location'])) {
+			// 	dd ($attributes['catSlug']);
+			// }			
 			if (!empty($cat)) {
 				if (isset($attributes['location'])) {
 					dd (isset($attributes['location']));
