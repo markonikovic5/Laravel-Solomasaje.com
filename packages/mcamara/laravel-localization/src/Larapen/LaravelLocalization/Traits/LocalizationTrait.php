@@ -214,10 +214,10 @@ trait LocalizationTrait
 			Str::contains($url, trans('routes.t-search-cat', [], $locale))
 			&& isset($attributes['catSlug'])
 			) {
-			if (isset($attributes['catSlug'])) {
-				dd ($attributes['catSlug']);
-			}
 			$cat = self::getCategoryBySlug($attributes['catSlug'], $locale);
+			if (isset($attributes['catSlug'])) {
+				dd ($cat);
+			}
 			if (!empty($cat)) {
 
 				$routePath = '';
