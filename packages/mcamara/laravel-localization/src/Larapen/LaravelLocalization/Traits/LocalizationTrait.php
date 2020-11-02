@@ -209,14 +209,14 @@ trait LocalizationTrait
 		// Work with URL Path (without URL Protocol & Host)
 		$url = $this->getUrlPath($url, $locale);
 		
-		if (isset($attributes['catSlug'])) {
-			dd (trans('routes.t-search-cat', [], $locale));
-		}
 		// Search: Category
 		if (
 			Str::contains($url, trans('routes.t-search-cat', [], $locale))
 			&& isset($attributes['catSlug'])
-		) {
+			) {
+			if (isset($attributes['catSlug'])) {
+				dd (trans('routes.t-search-cat', [], $locale));
+			}
 			$cat = self::getCategoryBySlug($attributes['catSlug'], $locale);
 			if (!empty($cat)) {
 
