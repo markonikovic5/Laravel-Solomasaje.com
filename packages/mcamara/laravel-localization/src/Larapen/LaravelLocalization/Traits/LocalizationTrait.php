@@ -220,17 +220,25 @@ trait LocalizationTrait
 				if (isset($attributes['subCatSlug']) && !empty($attributes['subCatSlug'])) {
 					$subCat = self::getSubCategoryBySlug($cat->tid, $attributes['subCatSlug'], $locale);
 					if (!empty($subCat)) {
+						
 						$routePath = trans('routes.v-search-subCat', [
 								'countryCode' => $countryCode,
 								'catSlug'     => $cat->slug,
 								'subCatSlug'  => $subCat->slug,
 							], $locale);
 					}
+				} else if(isset($attributes['location']) && !empty($attributes['location'])) {
+					$routePath = trans('routes.v-search', [
+							'countryCode'  => $countryCode,
+							'catSlug'      => $entry->catSlug,
+							'location'     => $entry->location,
+							'locationId'   => $entry->locationId,
+						], $locale);
 				} else {
 					$routePath = trans('routes.v-search-cat', [
 						'countryCode' => $countryCode,
 						'catSlug'     => $cat->slug,
-					], $locale);
+					], $locale);					
 				}
 				
 				$url = app('url')->to($localePath . $routePath) . $queryString;

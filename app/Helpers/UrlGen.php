@@ -176,15 +176,16 @@ class UrlGen
 			} else {
 				$url = '#';
 			}
-		} else if ($level == 1) {
-			if (isset($entry->parent) && isset($entry->parent->slug) && isset($entry->slug)) {
+		} else if ($level == 2) {
+			if (isset($entry->catSlug) && isset($entry->locationSlug)) {
 				$attr = [
-					'countryCode' => $countryCode,
-					'catSlug'     => $entry->parent->slug,
-					'subCatSlug'  => $entry->slug,
+					'countryCode'  => $countryCode,
+					'catSlug'      => $entry->catSlug,
+					'location'     => $entry->location,
+					'locationId'   => $entry->locationId,
 				];
 
-				$url = lurl(trans('routes.v-search-subCat', $attr, $locale), $attr, $locale);
+				$url = lurl(trans('routes.v-search', $attr, $locale), $attr, $locale);
 			} else {
 				$url = '#';
 			}
