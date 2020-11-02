@@ -191,9 +191,7 @@ trait LocalizationTrait
 		if (Str::contains($url, '{')) {
 			return $url;
 		}
-		if (isset($attributes['location'])) {
-			dd (isset($attributes['location']));
-		}		
+
 		// Get the Query String
 		$queryString = '';
 		$parts = mb_parse_url($url);
