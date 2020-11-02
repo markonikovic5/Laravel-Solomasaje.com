@@ -40,9 +40,9 @@ class SearchController extends BaseController
 
 		// Pre-Search
 		if (request()->filled('c')) {
-			$catId = Category::getFieldId($cat);
+			$catId = Category::getFieldId(request()->get('c'));
 			if (request()->filled('sc')) {
-				$subCatId = Category::getFieldId($subCat);
+				$subCatId = Category::getFieldId(request()->get('sc'));
 				$this->getCategory($catId, $subCatId);
 				
 				// Get Category nested IDs
