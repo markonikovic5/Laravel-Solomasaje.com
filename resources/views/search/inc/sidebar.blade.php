@@ -162,7 +162,7 @@
 									'sc' => (isset($subCat)) ? $subCat->name : '',
 								];
 								$originUrlLocation = qsurl($fullUrlLocation, array_merge(request()->except(['page'] + array_keys($locationParams)), $locationParams), null, false);
-								$distance = substr($originUrlLocation, strpos($originUrlLocation, 'r='), strpos($originUrlLocation, '&'));
+								$distance = substr($originUrlLocation, strpos($originUrlLocation, 'r='), strpos($originUrlLocation, '&', strpos($originUrlLocation, 'r=')));
 							?>
 							<li>
 								@if ((isset($uriPathCityId) and $uriPathCityId == $city->id) or (request()->input('l')==$city->id))
