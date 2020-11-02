@@ -164,7 +164,9 @@
 								$originUrlLocation = qsurl($fullUrlLocation, array_merge(request()->except(['page'] + array_keys($locationParams)), $locationParams), null, false);
 								$rPos = strpos($originUrlLocation, 'r=') + 2;
 								$cPos = strpos($originUrlLocation, 'c=') - 1;
+								$scPos = strpos($originUrlLocation, 'sc=') + 2;
 								$distance = substr($originUrlLocation, $rPos, $cPos- $rPos);
+								$subCat = substr($originUrlLocation, $scPos);
 							?>
 							<li>
 								@if ((isset($uriPathCityId) and $uriPathCityId == $city->id) or (request()->input('l')==$city->id))
