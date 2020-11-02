@@ -162,7 +162,9 @@
 									'sc' => (isset($subCat)) ? $subCat->name : '',
 								];
 								$originUrlLocation = qsurl($fullUrlLocation, array_merge(request()->except(['page'] + array_keys($locationParams)), $locationParams), null, false);
-								$distance = substr($originUrlLocation, strpos($originUrlLocation, 'r='), strpos($originUrlLocation, 'c='));
+								$rPos = strpos($originUrlLocation, 'r=');
+								$cPos = strpos($originUrlLocation, 'c=');
+								$distance = substr($originUrlLocation, $rPos, $cPos- $rPos);
 								$lpos = strpos($originUrlLocation, 'c=');
 								$fpos = strpos($originUrlLocation, 'r=');
 							?>
@@ -175,7 +177,7 @@
 									</strong>
 								@else
 									<a href="{{ route('masajes', ['catInfo' => $locationParams['c'], 'cityInfo' => $locationParams['l']]) }}" title="{{ $city->name }}">
-										{{ $fpos.$lpos }}
+										{{ $distance }}
 									</a>
 								@endif
 							</li>
