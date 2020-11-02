@@ -156,7 +156,7 @@
 								$attr = ['countryCode' => config('country.icode')];
 								$fullUrlLocation = lurl(trans('routes.v-search', $attr), $attr);
 								$locationParams = [
-									'catSlug' => (isset($subCat)) ? $subCat->name : $cat->name,
+									'catSlug' => (isset($subCat)) ? $subCat->name : $cat->slug,
 									'location'  => $city->name,
 									'locationId'  => $city->id,
 								];
@@ -170,7 +170,7 @@
 									</strong>
 								@else
 									<a href="{{ \App\Helpers\UrlGen::category($locationParams, 2) }}" title="{{ $city->name }}">
-										{{ $cat }}
+										{{ $cat->slug }}
 									</a>
 								@endif
 							</li>
