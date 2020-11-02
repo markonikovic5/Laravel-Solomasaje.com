@@ -186,9 +186,7 @@ trait LocalizationTrait
 		if (empty($locale)) {
 			$locale = $this->getCurrentLocale();
 		}
-		if (isset($attributes['location'])) {
-			dd (isset($attributes['location']));
-		}		
+
 		// Don't capture RAW urls
 		if (Str::contains($url, '{')) {
 			return $url;
