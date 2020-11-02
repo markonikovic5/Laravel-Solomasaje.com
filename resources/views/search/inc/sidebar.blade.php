@@ -156,28 +156,21 @@
 								$attr = ['countryCode' => config('country.icode')];
 								$fullUrlLocation = lurl(trans('routes.v-search', $attr), $attr);
 								$locationParams = [
-									'l'  => $city->name,
+									'l'  => $city->id,
 									'r'  => '',
-									'c'  => (isset($cat)) ? $cat->name : '',
-									'sc' => (isset($subCat)) ? $subCat->name : '',
+									'c'  => (isset($cat)) ? $cat->tid : '',
+									'sc' => (isset($subCat)) ? $subCat->tid : '',
 								];
-								$originUrlLocation = qsurl($fullUrlLocation, array_merge(request()->except(['page'] + array_keys($locationParams)), $locationParams), null, false);
-								// $rPos = strpos($originUrlLocation, 'r=') + 2;
-								// $cPos = strpos($originUrlLocation, 'c=') - 1;
-								// $scPos = strpos($originUrlLocation, 'sc=') + 2;
-								// $distance = (substr($originUrlLocation, $rPos, $cPos- $rPos) != '') ? '/' + substr($originUrlLocation, $rPos, $cPos- $rPos) : '';
-								$iDistance = '2020';
-								// $iSubCat = (substr($originUrlLocation, $scPos + 1) != '') ? '/' + substr($originUrlLocation, $scPos + 1) : '';
 							?>
 							<li>
 								@if ((isset($uriPathCityId) and $uriPathCityId == $city->id) or (request()->input('l')==$city->id))
 									<strong>
-										<a href="{{ route('masajes', ['catInfo' => $locationParams['c'].$iSubCat, 'cityInfo' => $locationParams['l'], 'distance' => $iDistance]) }}" title="{{ $city->name }}">
+										<a href="{!! qsurl($fullUrlLocation, array_merge(request()->except(['page'] + array_keys($locationParams)), $locationParams), null, false) !!}" title="{{ $city->name }}">
 											{{ $city->name }}
 										</a>
 									</strong>
 								@else
-									<a href="{{ route('masajes', ['catInfo' => $locationParams['c'].$iSubCat, 'cityInfo' => $locationParams['l'], 'distance' => $iDistance]) }}" title="{{ $city->name }}">
+									<a href="{!! qsurl($fullUrlLocation, array_merge(request()->except(['page'] + array_keys($locationParams)), $locationParams), null, false) !!}" title="{{ $city->name }}">
 										{{ $city->name }}
 									</a>
 								@endif
