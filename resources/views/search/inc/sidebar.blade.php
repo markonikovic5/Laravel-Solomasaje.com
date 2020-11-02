@@ -165,9 +165,6 @@
 								$rPos = strpos($originUrlLocation, 'r=') + 2;
 								$cPos = strpos($originUrlLocation, 'c=') - 1;
 								$distance = substr($originUrlLocation, $rPos, $cPos- $rPos);
-								$subCat = [
-									'sc' => (isset($subCat)) ? $subCat->name : '',
-								]
 							?>
 							<li>
 								@if ((isset($uriPathCityId) and $uriPathCityId == $city->id) or (request()->input('l')==$city->id))
