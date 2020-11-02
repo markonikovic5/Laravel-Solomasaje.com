@@ -158,7 +158,6 @@ class UrlGen
 				$attr = [
 					'countryCode' => $countryCode,
 					'catSlug'     => $entry->slug,
-					'city'        => 'city',
 				];
 
 				$url = lurl(trans('routes.v-search-cat', $attr, $locale), $attr, $locale);
