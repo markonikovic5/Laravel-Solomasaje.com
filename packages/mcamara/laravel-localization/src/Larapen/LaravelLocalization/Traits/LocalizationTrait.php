@@ -210,7 +210,7 @@ trait LocalizationTrait
 		$url = $this->getUrlPath($url, $locale);
 		
 		if (isset($attributes['location'])) {
-			dd ("this is city controller");
+			dd ($url);
 		}
 		// Search: Category
 		if (
