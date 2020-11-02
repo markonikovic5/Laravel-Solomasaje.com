@@ -155,6 +155,7 @@
 							<?php
 								$attr = ['countryCode' => config('country.icode')];
 								$fullUrlLocation = lurl(trans('routes.v-search', $attr), $attr);
+								$subCat = (isset($subCat)) ? $subCat->name : '';
 								$locationParams = [
 									'l'  => $city->name,
 									'r'  => '',
@@ -162,7 +163,6 @@
 									'sc' => (isset($subCat)) ? $subCat->name : '',
 								];
 								$originUrlLocation = qsurl($fullUrlLocation, array_merge(request()->except(['page'] + array_keys($locationParams)), $locationParams), null, false);
-								$subCat = (isset($subCat)) ? $subCat->name : '';
 								$distance = '';
 							?>
 							<li>
