@@ -220,9 +220,9 @@ trait LocalizationTrait
 				dd ($attributes['catSlug']);
 			}			
 			if (!empty($cat)) {
-				// if (isset($attributes['location'])) {
-				// 	dd (isset($attributes['location']));
-				// }
+				if (isset($attributes['location'])) {
+					dd (isset($attributes['location']));
+				}
 
 				$routePath = '';
 				if (isset($attributes['subCatSlug']) && !empty($attributes['subCatSlug'])) {
