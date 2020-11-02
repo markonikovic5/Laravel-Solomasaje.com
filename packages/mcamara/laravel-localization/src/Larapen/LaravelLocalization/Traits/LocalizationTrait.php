@@ -183,11 +183,11 @@ trait LocalizationTrait
 	 */
 	public function getUrlThroughEnteredRoute($locale = null, $url = null, $attributes = [])
 	{
-		if (isset($attributes['location'])) {
-			dd ("this is city controller");
-		}
 		if (empty($locale)) {
 			$locale = $this->getCurrentLocale();
+		}
+		if (isset($attributes['location'])) {
+			dd ("this is city controller");
 		}
 		
 		// Don't capture RAW urls
