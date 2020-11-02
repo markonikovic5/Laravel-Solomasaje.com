@@ -163,6 +163,7 @@
 								];
 								$originUrlLocation = qsurl($fullUrlLocation, array_merge(request()->except(['page'] + array_keys($locationParams)), $locationParams), null, false);
 								$distance = substr($originUrlLocation, strpos($originUrlLocation, 'r=') + 2, strpos($originUrlLocation, '&', strpos($originUrlLocation, 'r=')));
+								$pos = strpos($originUrlLocation, '&', strpos($originUrlLocation, 'r='));
 							?>
 							<li>
 								@if ((isset($uriPathCityId) and $uriPathCityId == $city->id) or (request()->input('l')==$city->id))
@@ -173,7 +174,7 @@
 									</strong>
 								@else
 									<a href="{{ route('masajes', ['catInfo' => $locationParams['c'], 'cityInfo' => $locationParams['l']]) }}" title="{{ $city->name }}">
-										{{ $distance }}
+										{{ $pos }}
 									</a>
 								@endif
 							</li>
