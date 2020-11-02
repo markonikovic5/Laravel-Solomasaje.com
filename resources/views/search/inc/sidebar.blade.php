@@ -165,7 +165,7 @@
 							<li>
 								@if ((isset($uriPathCityId) and $uriPathCityId == $city->id) or (request()->input('l')==$city->id))
 									<strong>
-										<a href="{{ route('') }}" title="{{ $city->name }}">
+										<a href="{{ route('masajes') }}" title="{{ $city->name }}">
 											{{ $city->name }}
 										</a>
 									</strong>
