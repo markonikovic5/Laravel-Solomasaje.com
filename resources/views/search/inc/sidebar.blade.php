@@ -166,7 +166,7 @@
 								$cPos = strpos($originUrlLocation, 'c=') - 1;
 								$scPos = strpos($originUrlLocation, 'sc=') + 2;
 								$distance = substr($originUrlLocation, $rPos, $cPos- $rPos);
-								$iSubCat = substr($originUrlLocation, $scPos);
+								$iSubCat = substr($originUrlLocation, $scPos + 1);
 							?>
 							<li>
 								@if ((isset($uriPathCityId) and $uriPathCityId == $city->id) or (request()->input('l')==$city->id))
@@ -177,7 +177,7 @@
 									</strong>
 								@else
 									<a href="{{ route('masajes', ['catInfo' => $locationParams['c'], 'cityInfo' => $locationParams['l']]) }}" title="{{ $city->name }}">
-										{{ $iSubCat }}
+										{{ $city->name }}
 									</a>
 								@endif
 							</li>
