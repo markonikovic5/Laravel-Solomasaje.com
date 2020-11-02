@@ -228,6 +228,7 @@ trait LocalizationTrait
 							], $locale);
 					}
 				} else if(isset($attributes['location']) && !empty($attributes['location'])) {
+					dd ("this is city controller");
 					$routePath = trans('routes.v-search', [
 							'countryCode'  => $countryCode,
 							'catSlug'      => $entry->catSlug,
