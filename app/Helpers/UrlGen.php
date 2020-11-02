@@ -178,7 +178,6 @@ class UrlGen
 			}
 		} else if ($level == 2) {
 			if (isset($entry->catSlug) && isset($entry->location)) {
-				dd ($countryCode);
 				$attr = [
 					'countryCode'  => $countryCode,
 					'catSlug'      => $entry->catSlug,
@@ -186,6 +185,7 @@ class UrlGen
 					'locationId'   => $entry->locationId,
 				];
 
+				dd (trans('routes.v-search', $attr, $locale));
 				$url = lurl(trans('routes.v-search', $attr, $locale), $attr, $locale);
 			} else {
 				$url = '#';
