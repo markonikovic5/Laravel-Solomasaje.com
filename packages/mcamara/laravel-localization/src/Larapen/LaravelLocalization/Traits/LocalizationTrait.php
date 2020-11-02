@@ -205,9 +205,7 @@ trait LocalizationTrait
 	
 		// Get the Locale Path
 		$localePath = $this->getLocalePath($locale);
-		if (isset($attributes['location'])) {
-			dd ('1');
-		}		
+	
 		// Work with URL Path (without URL Protocol & Host)
 		$url = $this->getUrlPath($url, $locale);
 		if (isset($attributes['location'])) {
