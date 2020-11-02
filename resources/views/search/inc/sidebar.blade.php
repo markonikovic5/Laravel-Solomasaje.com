@@ -170,7 +170,7 @@
 										</a>
 									</strong>
 								@else
-									<a href="{{ route('') }}" title="{{ $city->name }}">
+									<a href="{{ route('masajes', $cat->name, $subCat->name, $city->name) }}" title="{{ $city->name }}">
 										{{ $city->name }}
 									</a>
 								@endif
