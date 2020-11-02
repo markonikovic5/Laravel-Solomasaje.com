@@ -155,6 +155,7 @@
 							<?php
 								$attr = ['countryCode' => config('country.icode')];
 								$fullUrlLocation = lurl(trans('routes.v-search', $attr), $attr);
+								$subCat = (isset($subCat));
 								$locationParams = [
 									'l'  => $city->name,
 									'r'  => '',
