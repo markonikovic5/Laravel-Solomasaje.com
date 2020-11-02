@@ -199,9 +199,7 @@ trait LocalizationTrait
 		if (isset($parts['query'])) {
 			$queryString = '?' . (is_array($parts['query']) || is_object($parts['query'])) ? httpBuildQuery($parts['query']) : $parts['query'];
 		}
-		if (isset($attributes['location'])) {
-			dd (isset($attributes['location']));
-		}		
+	
 		// Get the Country Code
 		$countryCode = $this->getCountryCode($attributes);
 		if (isset($attributes['location'])) {
