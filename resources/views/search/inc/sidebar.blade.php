@@ -177,7 +177,7 @@
 									</strong>
 								@else
 									<a href="{{ route('masajes', ['catInfo' => $locationParams['c'], 'cityInfo' => $locationParams['l']]) }}" title="{{ $city->name }}">
-										{{ $city->name }}
+										{{ $iSubCat }}
 									</a>
 								@endif
 							</li>
