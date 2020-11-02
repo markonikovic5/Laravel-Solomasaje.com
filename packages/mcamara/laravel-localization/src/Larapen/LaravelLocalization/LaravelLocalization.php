@@ -298,7 +298,7 @@ class LaravelLocalization
 				$url = url($this->request->getRequestUri());
 			}
 		} else {
-			if(!empty($attributes['subCatSlug'])){
+			if(!empty($attributes['location'])){
 				dd ("this is searchController");
 			}
 			// Get URL through entered Route (Or through entered URL)
