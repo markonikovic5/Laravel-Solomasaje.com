@@ -183,32 +183,49 @@ trait LocalizationTrait
 	 */
 	public function getUrlThroughEnteredRoute($locale = null, $url = null, $attributes = [])
 	{
+		if (isset($attributes['location'])) {
+			dd (isset($attributes['location']));
+		}
 		if (empty($locale)) {
 			$locale = $this->getCurrentLocale();
 		}
-		
+		if (isset($attributes['location'])) {
+			dd (isset($attributes['location']));
+		}		
 		// Don't capture RAW urls
 		if (Str::contains($url, '{')) {
 			return $url;
 		}
-		
+		if (isset($attributes['location'])) {
+			dd (isset($attributes['location']));
+		}		
 		// Get the Query String
 		$queryString = '';
 		$parts = mb_parse_url($url);
-		
+		if (isset($attributes['location'])) {
+			dd (isset($attributes['location']));
+		}		
 		if (isset($parts['query'])) {
 			$queryString = '?' . (is_array($parts['query']) || is_object($parts['query'])) ? httpBuildQuery($parts['query']) : $parts['query'];
 		}
-		
+		if (isset($attributes['location'])) {
+			dd (isset($attributes['location']));
+		}		
 		// Get the Country Code
 		$countryCode = $this->getCountryCode($attributes);
-		
+		if (isset($attributes['location'])) {
+			dd (isset($attributes['location']));
+		}		
 		// Get the Locale Path
 		$localePath = $this->getLocalePath($locale);
-		
+		if (isset($attributes['location'])) {
+			dd (isset($attributes['location']));
+		}		
 		// Work with URL Path (without URL Protocol & Host)
 		$url = $this->getUrlPath($url, $locale);
-		
+		if (isset($attributes['location'])) {
+			dd (isset($attributes['location']));
+		}		
 		// Search: Category
 		if (
 			Str::contains($url, trans('routes.t-search-cat', [], $locale))
