@@ -202,13 +202,11 @@ trait LocalizationTrait
 	
 		// Get the Country Code
 		$countryCode = $this->getCountryCode($attributes);
-		if (isset($attributes['location'])) {
-			dd (isset($attributes['location']));
-		}		
+	
 		// Get the Locale Path
 		$localePath = $this->getLocalePath($locale);
 		if (isset($attributes['location'])) {
-			dd (isset($attributes['location']));
+			dd ('1');
 		}		
 		// Work with URL Path (without URL Protocol & Host)
 		$url = $this->getUrlPath($url, $locale);
