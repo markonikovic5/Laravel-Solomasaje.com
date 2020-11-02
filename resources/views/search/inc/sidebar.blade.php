@@ -163,7 +163,7 @@
 								];
 								$originUrlLocation = qsurl($fullUrlLocation, array_merge(request()->except(['page'] + array_keys($locationParams)), $locationParams), null, false);
 								$distance = substr($originUrlLocation, strpos($originUrlLocation, 'r=') + 2, strpos($originUrlLocation, '&', strpos($originUrlLocation, 'r=')));
-								$lpos = strpos($originUrlLocation, '&', strpos($originUrlLocation, 'r=') + 2);
+								$lpos = strpos($originUrlLocation, 'sc=', strpos($originUrlLocation, 'r=') + 2);
 								$fpos = strpos($originUrlLocation, 'r=') + 2;
 							?>
 							<li>
