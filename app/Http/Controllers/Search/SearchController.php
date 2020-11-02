@@ -38,7 +38,7 @@ class SearchController extends BaseController
 	{
 		view()->share('isIndexSearch', $this->isIndexSearch);
 
-		dd ($catInfo);
+		dd ("$catInfo");
 		// Pre-Search
 		if ($cat) {
 			$catId = Category::getFieldId($cat);
