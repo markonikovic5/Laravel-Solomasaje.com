@@ -165,12 +165,12 @@
 								@if ((isset($uriPathCityId) and $uriPathCityId == $city->id) or (request()->input('l')==$city->id))
 									<strong>
 										<a href="{{ \App\Helpers\UrlGen::category($locationParams, 2) }}" title="{{ $city->name }}">
-											{{ $subCat }}
+											{{ $city->name }}
 										</a>
 									</strong>
 								@else
 									<a href="{{ \App\Helpers\UrlGen::category($locationParams, 2) }}" title="{{ $city->name }}">
-										{{ $city->name }}
+										{{ $cat }}
 									</a>
 								@endif
 							</li>
