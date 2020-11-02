@@ -34,11 +34,10 @@ class SearchController extends BaseController
 	/**
 	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
 	 */
-	public function index($catInfo, $cityInfo, $distance)
+	public function index()
 	{
 		view()->share('isIndexSearch', $this->isIndexSearch);
 
-		dd ("catInfo");
 		// Pre-Search
 		if ($cat) {
 			$catId = Category::getFieldId($cat);
