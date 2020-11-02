@@ -166,7 +166,7 @@
 								$cPos = strpos($originUrlLocation, 'c=') - 1;
 								$distance = substr($originUrlLocation, $rPos, $cPos- $rPos);
 								$subCat = [
-									'sc' = (isset($subCat)) ? $subCat->name : ''
+									'sc' => (isset($subCat)) ? $subCat->name : ''
 								]
 							?>
 							<li>
