@@ -406,7 +406,7 @@ Route::group([
 		// DYNAMIC URL PAGES
 		$router->pattern('id', '[0-9]+');
 		$router->pattern('username', '[a-zA-Z0-9]+');
-		Route::get('masajes/{cat}/{subCat}/{cityName}', 'Search\SearchController@index')->name('masajes');
+		Route::get('masajes/{catInfo}/{cityInfo}', 'Search\SearchController@index')->name('masajes');
 		Route::get(LaravelLocalization::transRoute('routes.search-user'), 'Search\UserController@index');
 		Route::get(LaravelLocalization::transRoute('routes.search-username'), 'Search\UserController@profile');
 		Route::get(LaravelLocalization::transRoute('routes.search-tag'), 'Search\TagController@index');
