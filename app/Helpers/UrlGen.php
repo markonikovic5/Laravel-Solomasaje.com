@@ -172,7 +172,7 @@ class UrlGen
 					'subCatSlug'  => $entry->slug,
 				];
 
-				dd (countryCode);
+				dd ($countryCode);
 				$url = lurl(trans('routes.v-search-subCat', $attr, $locale), $attr, $locale);
 			} else {
 				$url = '#';
