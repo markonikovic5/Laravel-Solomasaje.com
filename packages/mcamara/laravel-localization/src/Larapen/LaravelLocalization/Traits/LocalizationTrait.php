@@ -215,7 +215,7 @@ trait LocalizationTrait
 			&& isset($attributes['catSlug'])
 			) {
 			if (isset($attributes['catSlug'])) {
-				dd ("this is citycontroller");
+				dd ($attributes['catSlug']);
 			}
 			$cat = self::getCategoryBySlug($attributes['catSlug'], $locale);
 			if (!empty($cat)) {
