@@ -199,9 +199,6 @@ trait LocalizationTrait
 		if (isset($parts['query'])) {
 			$queryString = '?' . (is_array($parts['query']) || is_object($parts['query'])) ? httpBuildQuery($parts['query']) : $parts['query'];
 		}
-		if (isset($attributes['location'])) {
-			dd ("this is city controller");
-		}
 		
 		// Get the Country Code
 		$countryCode = $this->getCountryCode($attributes);
@@ -212,6 +209,9 @@ trait LocalizationTrait
 		// Work with URL Path (without URL Protocol & Host)
 		$url = $this->getUrlPath($url, $locale);
 		
+		if (isset($attributes['location'])) {
+			dd ("this is city controller");
+		}
 		// Search: Category
 		if (
 			Str::contains($url, trans('routes.t-search-cat', [], $locale))
