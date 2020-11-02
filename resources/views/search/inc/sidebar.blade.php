@@ -156,7 +156,7 @@
 								$attr = ['countryCode' => config('country.icode')];
 								$fullUrlLocation = lurl(trans('routes.v-search', $attr), $attr);
 								$locationParams = [
-									'l'  => $city->id,
+									'l'  => $city->name,
 									'r'  => '',
 									'c'  => (isset($cat)) ? $cat->name : '',
 									'sc' => (isset($subCat)) ? $subCat->name : '',
@@ -165,12 +165,12 @@
 							<li>
 								@if ((isset($uriPathCityId) and $uriPathCityId == $city->id) or (request()->input('l')==$city->id))
 									<strong>
-										<a href="{{ route('masajes', $cat->name, $subCat->name, $city->name) }}" title="{{ $city->name }}">
+										<a href="{{ route('masajes', $locationParams->c, $locationParams->c, $locationParams->l) }}" title="{{ $city->name }}">
 											{{ $city->name }}
 										</a>
 									</strong>
 								@else
-									<a href="{{ route('masajes', $cat->name, $subCat->name, $city->name) }}" title="{{ $city->name }}">
+									<a href="{{ route('masajes', $locationParams->c, $locationParams->c, $locationParams->l) }}" title="{{ $city->name }}">
 										{{ $city->name }}
 									</a>
 								@endif
