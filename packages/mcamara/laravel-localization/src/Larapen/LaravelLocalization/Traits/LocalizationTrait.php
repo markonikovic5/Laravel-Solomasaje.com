@@ -186,13 +186,13 @@ trait LocalizationTrait
 		if (empty($locale)) {
 			$locale = $this->getCurrentLocale();
 		}
-		if (isset($attributes['location'])) {
-			dd ("this is city controller");
-		}
 		
 		// Don't capture RAW urls
 		if (Str::contains($url, '{')) {
 			return $url;
+		}
+		if (isset($attributes['location'])) {
+			dd ("this is city controller");
 		}
 		
 		// Get the Query String
