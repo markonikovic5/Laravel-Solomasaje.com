@@ -178,7 +178,7 @@ class UrlGen
 			}
 		} else if ($level == 2) {
 			if (isset($entry->catSlug) && isset($entry->location)) {
-				dd ($entry);
+				dd ($countryCode);
 				$attr = [
 					'countryCode'  => $countryCode,
 					'catSlug'      => $entry->catSlug,
