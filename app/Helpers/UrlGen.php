@@ -185,7 +185,6 @@ class UrlGen
 					'locationId'   => $entry->locationId,
 				];
 
-				dd (trans('routes.v-search', $attr, $locale));
 				$url = lurl(trans('routes.v-search', $attr, $locale), $attr, $locale);
 			} else {
 				$url = '#';
