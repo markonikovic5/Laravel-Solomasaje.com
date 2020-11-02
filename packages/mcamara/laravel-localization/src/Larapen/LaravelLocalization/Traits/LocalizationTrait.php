@@ -217,6 +217,9 @@ trait LocalizationTrait
 			$cat = self::getCategoryBySlug($attributes['catSlug'], $locale);
 			if (!empty($cat)) {
 				$routePath = '';
+				if(isset($attributes['location'])){
+					dd ("this is city Controller");
+				}
 				if (isset($attributes['subCatSlug']) && !empty($attributes['subCatSlug'])) {
 					$subCat = self::getSubCategoryBySlug($cat->tid, $attributes['subCatSlug'], $locale);
 					if (!empty($subCat)) {
