@@ -227,6 +227,7 @@ trait LocalizationTrait
 								'subCatSlug'  => $subCat->slug,
 							], $locale);
 					}
+					dd ("this is subCat controller");
 				} else if(isset($attributes['location']) && !empty($attributes['location'])) {
 					dd ("this is city controller");
 					$routePath = trans('routes.v-search', [
