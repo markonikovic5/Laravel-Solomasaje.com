@@ -162,8 +162,8 @@
 									'sc' => (isset($subCat)) ? $subCat->name : '',
 								];
 								$originUrlLocation = qsurl($fullUrlLocation, array_merge(request()->except(['page'] + array_keys($locationParams)), $locationParams), null, false);
-								$rPos = strpos($originUrlLocation, 'r=');
-								$cPos = strpos($originUrlLocation, 'c=');
+								$rPos = strpos($originUrlLocation, 'r=') + 2;
+								$cPos = strpos($originUrlLocation, 'c=') - 1;
 								$distance = substr($originUrlLocation, $rPos, $cPos- $rPos);
 								$lpos = strpos($originUrlLocation, 'c=');
 								$fpos = strpos($originUrlLocation, 'r=');
