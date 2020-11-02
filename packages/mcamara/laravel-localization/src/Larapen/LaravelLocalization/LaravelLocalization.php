@@ -298,9 +298,6 @@ class LaravelLocalization
 				$url = url($this->request->getRequestUri());
 			}
 		} else {
-			if(isset($attributes['location']) && !empty($attributes['location'])){
-				dd ("this is searchController");
-			}
 			// Get URL through entered Route (Or through entered URL)
 			$url = $this->getUrlThroughEnteredRoute($locale, $url, $attributes);
 			if (!empty($url)) {
