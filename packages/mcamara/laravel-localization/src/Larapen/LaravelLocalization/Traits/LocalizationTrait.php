@@ -210,7 +210,7 @@ trait LocalizationTrait
 		$url = $this->getUrlPath($url, $locale);
 		
 		if (isset($attributes['location'])) {
-			dd ($url);
+			dd (trans('routes.t-search-cat', [], $locale));
 		}
 		// Search: Category
 		if (
