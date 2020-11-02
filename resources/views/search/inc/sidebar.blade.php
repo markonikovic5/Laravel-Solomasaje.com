@@ -165,19 +165,19 @@
 								$rPos = strpos($originUrlLocation, 'r=') + 2;
 								$cPos = strpos($originUrlLocation, 'c=') - 1;
 								$scPos = strpos($originUrlLocation, 'sc=') + 2;
-								$distance = (substr($originUrlLocation, $rPos, $cPos- $rPos) != '') ? '/' + substr($originUrlLocation, $rPos, $cPos- $rPos) : '';
+								// $distance = (substr($originUrlLocation, $rPos, $cPos- $rPos) != '') ? '/' + substr($originUrlLocation, $rPos, $cPos- $rPos) : '';
 								$iSubCat = (substr($originUrlLocation, $scPos + 1) != '') ? '/' + substr($originUrlLocation, $scPos + 1) : '';
 							?>
 							<li>
 								@if ((isset($uriPathCityId) and $uriPathCityId == $city->id) or (request()->input('l')==$city->id))
 									<strong>
-										<a href="{{ route('masajes', ['catInfo' => $locationParams['c'].$iSubCat, 'cityInfo' => $locationParams['l'], 'distance' => $distance]) }}" title="{{ $city->name }}">
+										<a href="{{ route('masajes', ['catInfo' => $locationParams['c'].$iSubCat, 'cityInfo' => $locationParams['l'], 'distance' => '$distance']) }}" title="{{ $city->name }}">
 											{{ $city->name }}
 										</a>
 									</strong>
 								@else
-									<a href="{{ route('masajes', ['catInfo' => $locationParams['c'].$iSubCat, 'cityInfo' => $locationParams['l'], 'distance' => $distance]) }}" title="{{ $city->name }}">
-										{{ $city->name }}
+									<a href="{{ route('masajes', ['catInfo' => $locationParams['c'].$iSubCat, 'cityInfo' => $locationParams['l'], 'distance' => '$distance']) }}" title="{{ $city->name }}">
+										{{ $rPos.$cPos }}
 									</a>
 								@endif
 							</li>
