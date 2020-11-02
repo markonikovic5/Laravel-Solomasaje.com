@@ -138,7 +138,7 @@ class UrlGen
 	 * @param null $countryCode
 	 * @return bool|\Illuminate\Contracts\Routing\UrlGenerator|mixed|string|null
 	 */
-	public static function category($entry, $city = null, $level = 0, $locale = null, $countryCode = null)
+	public static function category($entry, $level = 0, $locale = null, $countryCode = null)
 	{
 		if (empty($locale)) {
 			$locale = config('app.locale');
@@ -161,6 +161,18 @@ class UrlGen
 				];
 
 				$url = lurl(trans('routes.v-search-cat', $attr, $locale), $attr, $locale);
+			} else {
+				$url = '#';
+			}
+		} else if ($level == 1) {
+			if (isset($entry->parent) && isset($entry->parent->slug) && isset($entry->slug)) {
+				$attr = [
+					'countryCode' => $countryCode,
+					'catSlug'     => $entry->parent->slug,
+					'subCatSlug'  => $entry->slug,
+				];
+
+				$url = lurl(trans('routes.v-search-subCat', $attr, $locale), $attr, $locale);
 			} else {
 				$url = '#';
 			}
