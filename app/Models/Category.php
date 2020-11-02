@@ -118,6 +118,15 @@ class Category extends BaseModel
 			return $catId;
 		}
 	}
+
+	public static function getBCategory($catName){
+		$catData = Category::where(['name' => $catName])->get();
+		if(count($catData) == 0){
+			abort('301');
+		} else {
+			return $catData[0];
+		}
+	}
 	
 	/**
 	 * Return the sluggable configuration array for this model.
