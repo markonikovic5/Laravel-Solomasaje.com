@@ -191,16 +191,16 @@ trait LocalizationTrait
 		if (Str::contains($url, '{')) {
 			return $url;
 		}
-		if (isset($attributes['location'])) {
-			dd ("this is city controller");
-		}
 		
 		// Get the Query String
 		$queryString = '';
 		$parts = mb_parse_url($url);
-
+		
 		if (isset($parts['query'])) {
 			$queryString = '?' . (is_array($parts['query']) || is_object($parts['query'])) ? httpBuildQuery($parts['query']) : $parts['query'];
+		}
+		if (isset($attributes['location'])) {
+			dd ("this is city controller");
 		}
 		
 		// Get the Country Code
