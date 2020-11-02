@@ -216,13 +216,13 @@ trait LocalizationTrait
 			) {
 
 			$cat = self::getCategoryBySlug($attributes['catSlug'], $locale);
-			if (isset($attributes['location'])) {
-				dd ($attributes['catSlug']);
-			}			
+			// if (isset($attributes['location'])) {
+			// 	dd ($attributes['catSlug']);
+			// }			
 			if (!empty($cat)) {
-				if (isset($attributes['location'])) {
-					dd (isset($attributes['location']));
-				}
+				// if (isset($attributes['location'])) {
+				// 	dd (isset($attributes['location']));
+				// }
 
 				$routePath = '';
 				if (isset($attributes['subCatSlug']) && !empty($attributes['subCatSlug'])) {
