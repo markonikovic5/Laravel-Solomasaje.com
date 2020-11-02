@@ -216,13 +216,13 @@ trait LocalizationTrait
 			) {
 
 			$cat = self::getCategoryBySlug($attributes['catSlug'], $locale);
-			if (isset($attributes['location'])) {
-				dd ($cat);
-			}			
+			// if (isset($attributes['location'])) {
+			// 	dd ($cat);
+			// }			
 			if (!empty($cat)) {
-				if (isset($attributes['location'])) {
-					dd (isset($attributes['location']));
-				}
+				// if (isset($attributes['location'])) {
+				// 	dd (isset($attributes['location']));
+				// }
 
 				$routePath = '';
 				if (isset($attributes['subCatSlug']) && !empty($attributes['subCatSlug'])) {
@@ -248,9 +248,9 @@ trait LocalizationTrait
 						'catSlug'     => $cat->slug,
 					], $locale);					
 				}
-				if (isset($attributes['location'])) {
-					dd ($localePath);
-				}
+				// if (isset($attributes['location'])) {
+				// 	dd ($localePath);
+				// }
 				$url = app('url')->to($localePath . $routePath) . $queryString;
 			}
 		} // Search: Location - Laravel Routing don't support PHP rawurlencode() function
