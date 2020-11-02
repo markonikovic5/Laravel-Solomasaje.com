@@ -165,12 +165,12 @@
 							<li>
 								@if ((isset($uriPathCityId) and $uriPathCityId == $city->id) or (request()->input('l')==$city->id))
 									<strong>
-										<a href="{!! qsurl($fullUrlLocation, array_merge(request()->except(['page'] + array_keys($locationParams)), $locationParams), null, false) !!}" title="{{ $city->name }}">
+										<a href="{{ route('') }}" title="{{ $city->name }}">
 											{{ $city->name }}
 										</a>
 									</strong>
 								@else
-									<a href="{!! qsurl($fullUrlLocation, array_merge(request()->except(['page'] + array_keys($locationParams)), $locationParams), null, false) !!}" title="{{ $city->name }}">
+									<a href="{{ route('') }}" title="{{ $city->name }}">
 										{{ $city->name }}
 									</a>
 								@endif
