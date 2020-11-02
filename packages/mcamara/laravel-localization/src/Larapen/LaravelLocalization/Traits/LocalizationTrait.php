@@ -216,8 +216,8 @@ trait LocalizationTrait
 			) {
 			$cat = self::getCategoryBySlug($attributes['catSlug'], $locale);
 			if (!empty($cat)) {
-				if (isset($attributes['location']) && !empty($attributes['location'])) {
-					dd ($cat);
+				if (isset($attributes['location'])) {
+					dd (isset($attributes['location']));
 				}
 
 				$routePath = '';
