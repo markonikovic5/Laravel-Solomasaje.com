@@ -215,7 +215,7 @@ trait LocalizationTrait
 			&& isset($attributes['catSlug'])
 			) {
 			if (isset($attributes['catSlug'])) {
-				dd (trans('routes.t-search-cat', [], $locale));
+				dd ("this is citycontroller");
 			}
 			$cat = self::getCategoryBySlug($attributes['catSlug'], $locale);
 			if (!empty($cat)) {
