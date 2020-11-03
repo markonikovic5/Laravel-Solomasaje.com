@@ -238,9 +238,9 @@ trait LocalizationTrait
 				} else if(isset($attributes['location']) && !empty($attributes['location'])) {
 					$routePath = trans('routes.v-search', [
 							'countryCode'  => $countryCode,
-							'catSlug'      => $entry->catSlug,
-							'location'     => $entry->location,
-							'locationId'   => $entry->locationId,
+							'catSlug'      => $attributes->catSlug,
+							'location'     => $attributes->location,
+							'locationId'   => $attributes->locationId,
 						], $locale);
 				} else {
 					$routePath = trans('routes.v-search-cat', [
