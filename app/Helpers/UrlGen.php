@@ -180,11 +180,11 @@ class UrlGen
 			if (isset($entry->catSlug) && isset($entry->location)) {
 				$attr = [
 					'countryCode'  => $countryCode,
-					'catSlug'      => $entry->catSlug,
+					// 'catSlug'      => $entry->catSlug,
 					'location'     => $entry->location,
 					'locationId'   => $entry->locationId,
 				];
-
+				dd ("ssss");
 				$url = lurl(trans('routes.v-search', $attr, $locale), $attr, $locale);
 			} else {
 				$url = '#';
