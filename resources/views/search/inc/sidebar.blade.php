@@ -3,7 +3,6 @@
     $fullUrl = url(request()->getRequestUri());
     $tmpExplode = explode('?', $fullUrl);
 	$fullUrlNoParams = current($tmpExplode);
-	echo ($cat);
 ?>
 <div class="col-md-3 page-sidebar mobile-filter-sidebar pb-4">
 	<aside>
