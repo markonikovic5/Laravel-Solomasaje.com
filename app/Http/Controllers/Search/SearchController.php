@@ -34,7 +34,7 @@ class SearchController extends BaseController
 	/**
 	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
 	 */
-	public function index($catName, $location, $locationID)
+	public function index($catSlug, $location, $locationID)
 	{
 		view()->share('isIndexSearch', $this->isIndexSearch);
 
