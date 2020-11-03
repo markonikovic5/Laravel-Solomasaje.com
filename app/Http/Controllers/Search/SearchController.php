@@ -62,29 +62,28 @@ class SearchController extends BaseController
 
 			// Get Custom Fields
 			$customFields = CategoryField::getFields($catNestedIds);
-			dd ($customFields);
 			view()->share('customFields', $customFields);
 		}
-		// if (request()->filled('l') || request()->filled('location')) {
-		// 	$city = $this->getCity(request()->get('l'), request()->get('location'));
-		// }
-		// if (request()->filled('r') && !request()->filled('l')) {
-		// 	$admin = $this->getAdmin(request()->get('r'));
-		// }
+		if (request()->filled('l') || request()->filled('location')) {
+			$city = $this->getCity(request()->get('l'), request()->get('location'));
+		}
+		if (request()->filled('r') && !request()->filled('l')) {
+			$admin = $this->getAdmin(request()->get('r'));
+		}
 		
-		// // Pre-Search values
-		// $preSearch = [
-		// 	'city'  => (isset($city) && !empty($city)) ? $city : null,
-		// 	'admin' => (isset($admin) && !empty($admin)) ? $admin : null,
-		// ];
+		// Pre-Search values
+		$preSearch = [
+			'city'  => (isset($city) && !empty($city)) ? $city : null,
+			'admin' => (isset($admin) && !empty($admin)) ? $admin : null,
+		];
 		
-		// // Search
-		// $search = new $this->searchClass($preSearch);
-		// $data = $search->fetch();
+		// Search
+		$search = new $this->searchClass($preSearch);
+		$data = $search->fetch();
 
-		// // Export Search Result
-		// view()->share('count', $data['count']);
-		// view()->share('paginator', $data['paginator']);
+		// Export Search Result
+		view()->share('count', $data['count']);
+		view()->share('paginator', $data['paginator']);
 		
 		// // Get Titles
 		// $title = $this->getTitle();
