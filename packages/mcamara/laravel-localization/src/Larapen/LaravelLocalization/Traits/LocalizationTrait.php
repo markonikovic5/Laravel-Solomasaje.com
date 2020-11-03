@@ -52,6 +52,7 @@ trait LocalizationTrait
 			if (isset($attributes['catSlug'])) {
 				// Get Category
 				$cat = self::getCategoryBySlug($attributes['catSlug'], $locale);
+				
 				if (!empty($cat)) {
 					$routePath = '';
 					if (isset($attributes['subCatSlug']) && !empty($attributes['subCatSlug'])) {
@@ -185,52 +186,66 @@ trait LocalizationTrait
 		if (empty($locale)) {
 			$locale = $this->getCurrentLocale();
 		}
-		
+
 		// Don't capture RAW urls
 		if (Str::contains($url, '{')) {
 			return $url;
 		}
-		
+
 		// Get the Query String
 		$queryString = '';
 		$parts = mb_parse_url($url);
+
 		if (isset($parts['query'])) {
 			$queryString = '?' . (is_array($parts['query']) || is_object($parts['query'])) ? httpBuildQuery($parts['query']) : $parts['query'];
 		}
-		
+	
 		// Get the Country Code
 		$countryCode = $this->getCountryCode($attributes);
-		
+	
 		// Get the Locale Path
 		$localePath = $this->getLocalePath($locale);
-		
+	
 		// Work with URL Path (without URL Protocol & Host)
 		$url = $this->getUrlPath($url, $locale);
-		
+
 		// Search: Category
 		if (
 			Str::contains($url, trans('routes.t-search-cat', [], $locale))
 			&& isset($attributes['catSlug'])
-		) {
-			$cat = self::getCategoryBySlug($attributes['catSlug'], $locale);
-			if (!empty($cat)) {
+			) {
+			if (!isset($attributes['location'])) {
+				$cat = self::getCategoryBySlug($attributes['catSlug'], $locale);
+			}
+			if (!empty($cat) || isset($attributes['location'])) {
+
 				$routePath = '';
 				if (isset($attributes['subCatSlug']) && !empty($attributes['subCatSlug'])) {
 					$subCat = self::getSubCategoryBySlug($cat->tid, $attributes['subCatSlug'], $locale);
 					if (!empty($subCat)) {
+						
 						$routePath = trans('routes.v-search-subCat', [
 								'countryCode' => $countryCode,
 								'catSlug'     => $cat->slug,
 								'subCatSlug'  => $subCat->slug,
 							], $locale);
 					}
+				} else if(isset($attributes['location']) && !empty($attributes['location'])) {
+					$routePath = trans('routes.v-search', [
+							'countryCode'  => $countryCode,
+							'catSlug'      => $attributes['catSlug'],
+							'location'     => $attributes['location'],
+							'locationId'   => $attributes['locationId'],
+						], $locale);
 				} else {
 					$routePath = trans('routes.v-search-cat', [
 						'countryCode' => $countryCode,
 						'catSlug'     => $cat->slug,
-					], $locale);
+					], $locale);					
 				}
-				
+				// if (isset($attributes['location'])) {
+				// 	dd ($localePath);
+				// }
 				$url = app('url')->to($localePath . $routePath) . $queryString;
 			}
 		} // Search: Location - Laravel Routing don't support PHP rawurlencode() function

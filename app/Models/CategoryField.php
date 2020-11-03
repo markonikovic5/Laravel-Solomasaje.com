@@ -153,7 +153,7 @@ class CategoryField extends BaseModel
 		if (empty($catNestedIds->parentId) && empty($catNestedIds->id)) {
 			return collect($fields);
 		}
-		
+
 		// Get Post's Custom Fields values
 		$postFieldsValues = collect([]);
 		if (!empty($postId) && trim($postId) != '') {
@@ -172,6 +172,7 @@ class CategoryField extends BaseModel
 				->orWhere('category_id', $catNestedIds->id)
 				->orderBy('lft', 'ASC')
 				->get();
+			dd ($catFields);
 		} else {
 			if (!empty($catNestedIds->parentId)) {
 				$catFields = self::with(['field' => function ($builder) {

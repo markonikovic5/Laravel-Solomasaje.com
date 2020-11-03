@@ -34,41 +34,33 @@ class SearchController extends BaseController
 	/**
 	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
 	 */
-	public function index()
+	public function index($catSlug, $location, $locationID)
 	{
 		view()->share('isIndexSearch', $this->isIndexSearch);
 
 		// Pre-Search
-		if (request()->filled('c')) {
-			$catId = Category::getFieldId(request()->get('c'));
-			if (request()->filled('sc')) {
-				$subCatId = Category::getFieldId(request()->get('sc'));
-				$this->getCategory($catId, $subCatId);
-				
-				// Get Category nested IDs
-				$catNestedIds = (object)[
-					'parentId' => $catId,
-					'id'       => $subCatId,
-				];
-			} else {
-				$this->getCategory($catId);
-				
-				// // Get Category nested IDs
-				// $catNestedIds = (object)[
-				// 	'parentId' => 0,
-				// 	'id'       => $catId,
-				// ];
-			}
+		$subCatSlug = Category::getCategory($catSlug);
+		if($subCatSlug->parent_id == 0){
+			// Get Category nested IDs
+			$catNestedIds = (object)[
+				'parentId' => 0,
+				'id'       => $subCatSlug->id,
+			];
+		} else {
+			$catData = Category::getPCategory($subCatSlug);
 
-			// Get Custom Fields
-			// $customFields = CategoryField::getFields($catNestedIds);
-			// view()->share('customFields', $customFields);
+			// Get Category nested IDs
+			$catNestedIds = (object)[
+				'parentId' => $catData->id,
+				'id'       => $subCatSlug->id,
+			];
 		}
-		if (request()->filled('l') || request()->filled('location')) {
-			$city = $this->getCity(request()->get('l'), request()->get('location'));
-		}
-		if (request()->filled('r') && !request()->filled('l')) {
-			$admin = $this->getAdmin(request()->get('r'));
+		
+		// Get Custom Fields
+		$customFields = CategoryField::getFields($catNestedIds);
+		view()->share('customFields', $customFields);
+		if ($locationID) {
+			$city = $this->getCity($locationID);
 		}
 		
 		// Pre-Search values
@@ -80,19 +72,20 @@ class SearchController extends BaseController
 		// Search
 		$search = new $this->searchClass($preSearch);
 		$data = $search->fetch();
-
+		
 		// Export Search Result
 		view()->share('count', $data['count']);
 		view()->share('paginator', $data['paginator']);
 		
-		// // Get Titles
-		// $title = $this->getTitle();
-		// $this->getBreadcrumb();
-		// $this->getHtmlTitle();
-		// // Meta Tags
-		// MetaTag::set('title', $title);
-		// MetaTag::set('description', $title);
+		// Get Titles
+		$title = $this->getTitle();
+		$this->getBreadcrumb();
+		$this->getHtmlTitle();
 		
+		// Meta Tags
+		MetaTag::set('title', $title);
+		MetaTag::set('description', $title);
+
 		return view('search.serp');
 	}
 }
