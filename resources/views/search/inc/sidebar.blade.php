@@ -12,7 +12,7 @@
             
             <!-- Date -->
 			<div class="block-title has-arrow sidebar-header">
-				<h5><strong><a href="#"> {{ t('Date Posted') }} </a></strong></h5>
+				<h5><strong><a href="#"> {{$cat->slug}} </a></strong></h5>
 			</div>
             <div class="block-content list-filter">
                 <div class="filter-date filter-content">
