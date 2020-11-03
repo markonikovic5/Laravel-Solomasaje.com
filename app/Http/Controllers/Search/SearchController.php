@@ -61,8 +61,8 @@ class SearchController extends BaseController
 			}
 
 			// Get Custom Fields
-			$customFields = CategoryField::getFields($catNestedIds);
-			view()->share('customFields', $customFields);
+			// $customFields = CategoryField::getFields($catNestedIds);
+			// view()->share('customFields', $customFields);
 		}
 		if (request()->filled('l') || request()->filled('location')) {
 			$city = $this->getCity(request()->get('l'), request()->get('location'));
