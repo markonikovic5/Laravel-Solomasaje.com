@@ -1,13 +1,13 @@
 <?php
-// if (!isset($cats)) {
-//     $cats = collect([]);
-// }
+if (!isset($cats)) {
+    $cats = collect([]);
+}
 
-// $cats = $cats->groupBy('parent_id');
-// $subCats = $cats;
-// if ($cats->has(0)) {
-// 	$cats = $cats->get(0);
-// }
+$cats = $cats->groupBy('parent_id');
+$subCats = $cats;
+if ($cats->has(0)) {
+	$cats = $cats->get(0);
+}
 if ($subCats->has(0)) {
 	$subCats = $subCats->forget(0);
 }
