@@ -51,7 +51,7 @@ class SearchController extends BaseController
 					'id'       => $subCatId,
 				];
 			} else {
-				// $this->getCategory($catId);
+				$this->getCategory($catId);
 				
 				// // Get Category nested IDs
 				// $catNestedIds = (object)[
