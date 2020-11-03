@@ -13,7 +13,7 @@ return [
     'contact' => 'contacto',
     'sitemap' => 'sitemap',
     'v-sitemap' => 'sitemap',
-    'search' => 'buscar',
+    'search' => 'masajes',
     't-search' => 'masajes',
     'v-search' => 'masajes/:catSlug/:location/:locationId',
     'search-subCat' => 'masajes/{catSlug}/{subCatSlug}',
