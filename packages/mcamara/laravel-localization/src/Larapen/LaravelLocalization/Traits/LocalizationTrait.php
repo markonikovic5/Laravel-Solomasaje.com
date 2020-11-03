@@ -230,12 +230,11 @@ trait LocalizationTrait
 							], $locale);
 					}
 				} else if(isset($attributes['location']) && !empty($attributes['location'])) {
-					dd ($attributes['catSlug']);
 					$routePath = trans('routes.v-search', [
 							'countryCode'  => $countryCode,
-							'catSlug'      => $attributes->catSlug,
-							'location'     => $attributes->location,
-							'locationId'   => $attributes->locationId,
+							'catSlug'      => $attributes['catSlug'],
+							'location'     => $attributes['location'],
+							'locationId'   => $attributes['locationId'],
 						], $locale);
 				} else {
 					$routePath = trans('routes.v-search-cat', [
