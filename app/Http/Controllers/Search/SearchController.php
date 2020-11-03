@@ -36,9 +36,9 @@ class SearchController extends BaseController
 	 */
 	public function index($countryCode, $subCatSlug, $location, $locationID)
 	{
+		dd ($countryCode);
 		view()->share('isIndexSearch', $this->isIndexSearch);
 
-		dd ($countryCode);
 		// Pre-Search
 		$subCatSlug = Category::getBCategory($catSlug);
 		if($subCatSlug->parent_id == 0){
