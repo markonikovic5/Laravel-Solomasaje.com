@@ -80,7 +80,7 @@ class SearchController extends BaseController
 		// Search
 		$search = new $this->searchClass($preSearch);
 		$data = $search->fetch();
-		dd ($data);
+
 		// Export Search Result
 		view()->share('count', $data['count']);
 		view()->share('paginator', $data['paginator']);
@@ -89,7 +89,7 @@ class SearchController extends BaseController
 		$title = $this->getTitle();
 		$this->getBreadcrumb();
 		$this->getHtmlTitle();
-		
+		dd ($title);
 		// Meta Tags
 		MetaTag::set('title', $title);
 		MetaTag::set('description', $title);
