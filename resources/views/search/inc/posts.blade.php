@@ -6,7 +6,7 @@ if (!isset($cacheExpiration)) {
 @if (isset($paginator) and $paginator->getCollection()->count() > 0)
 	<?php
 		if (!isset($cats)) {
-			$cats = collect([]);
+			// $cats = collect([]);
 		}
   
 		foreach($paginator->getCollection() as $key => $post):
