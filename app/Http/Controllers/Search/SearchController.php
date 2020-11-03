@@ -36,62 +36,62 @@ class SearchController extends BaseController
 	 */
 	public function index()
 	{
-		view()->share('isIndexSearch', $this->isIndexSearch);
+		// view()->share('isIndexSearch', $this->isIndexSearch);
 
-		// Pre-Search
-		if (request()->filled('c')) {
-			$catId = Category::getFieldId(request()->get('c'));
-			if (request()->filled('sc')) {
-				$subCatId = Category::getFieldId(request()->get('sc'));
-				$this->getCategory($catId, $subCatId);
+		// // Pre-Search
+		// if (request()->filled('c')) {
+		// 	$catId = Category::getFieldId(request()->get('c'));
+		// 	if (request()->filled('sc')) {
+		// 		$subCatId = Category::getFieldId(request()->get('sc'));
+		// 		$this->getCategory($catId, $subCatId);
 				
-				// Get Category nested IDs
-				$catNestedIds = (object)[
-					'parentId' => $catId,
-					'id'       => $subCatId,
-				];
-			} else {
-				$this->getCategory($catId);
+		// 		// Get Category nested IDs
+		// 		$catNestedIds = (object)[
+		// 			'parentId' => $catId,
+		// 			'id'       => $subCatId,
+		// 		];
+		// 	} else {
+		// 		$this->getCategory($catId);
 				
-				// Get Category nested IDs
-				$catNestedIds = (object)[
-					'parentId' => 0,
-					'id'       => $catId,
-				];
-			}
-			//
-			// Get Custom Fields
-			$customFields = CategoryField::getFields($catNestedIds);
-			view()->share('customFields', $customFields);
-		}
-		if (request()->filled('l') || request()->filled('location')) {
-			$city = $this->getCity(request()->get('l'), request()->get('location'));
-		}
-		if (request()->filled('r') && !request()->filled('l')) {
-			$admin = $this->getAdmin(request()->get('r'));
-		}
+		// 		// Get Category nested IDs
+		// 		$catNestedIds = (object)[
+		// 			'parentId' => 0,
+		// 			'id'       => $catId,
+		// 		];
+		// 	}
+		// 	//
+		// 	// Get Custom Fields
+		// 	$customFields = CategoryField::getFields($catNestedIds);
+		// 	view()->share('customFields', $customFields);
+		// }
+		// if (request()->filled('l') || request()->filled('location')) {
+		// 	$city = $this->getCity(request()->get('l'), request()->get('location'));
+		// }
+		// if (request()->filled('r') && !request()->filled('l')) {
+		// 	$admin = $this->getAdmin(request()->get('r'));
+		// }
 		
-		// Pre-Search values
-		$preSearch = [
-			'city'  => (isset($city) && !empty($city)) ? $city : null,
-			'admin' => (isset($admin) && !empty($admin)) ? $admin : null,
-		];
+		// // Pre-Search values
+		// $preSearch = [
+		// 	'city'  => (isset($city) && !empty($city)) ? $city : null,
+		// 	'admin' => (isset($admin) && !empty($admin)) ? $admin : null,
+		// ];
 		
-		// Search
-		$search = new $this->searchClass($preSearch);
-		$data = $search->fetch();
+		// // Search
+		// $search = new $this->searchClass($preSearch);
+		// $data = $search->fetch();
 
-		// Export Search Result
-		view()->share('count', $data['count']);
-		view()->share('paginator', $data['paginator']);
+		// // Export Search Result
+		// view()->share('count', $data['count']);
+		// view()->share('paginator', $data['paginator']);
 		
-		// Get Titles
-		$title = $this->getTitle();
-		$this->getBreadcrumb();
-		$this->getHtmlTitle();
-		// Meta Tags
-		MetaTag::set('title', $title);
-		MetaTag::set('description', $title);
+		// // Get Titles
+		// $title = $this->getTitle();
+		// $this->getBreadcrumb();
+		// $this->getHtmlTitle();
+		// // Meta Tags
+		// MetaTag::set('title', $title);
+		// MetaTag::set('description', $title);
 		
 		return view('search.serp');
 	}
