@@ -41,6 +41,8 @@ class SearchController extends BaseController
 		// Pre-Search
 		$subCatSlug = Category::getCategory($catSlug);
 		if($subCatSlug->parent_id == 0){
+			$this->getCategory($subCatSlug->id);
+
 			// Get Category nested IDs
 			$catNestedIds = (object)[
 				'parentId' => 0,
@@ -48,6 +50,7 @@ class SearchController extends BaseController
 			];
 		} else {
 			$catData = Category::getPCategory($subCatSlug);
+			$this->getCategory($catData->id, $subCatSlug->id);
 
 			// Get Category nested IDs
 			$catNestedIds = (object)[
