@@ -89,7 +89,6 @@ class SearchController extends BaseController
 		$title = $this->getTitle();
 		$this->getBreadcrumb();
 		$this->getHtmlTitle();
-		dd ($title);
 		// Meta Tags
 		MetaTag::set('title', $title);
 		MetaTag::set('description', $title);
