@@ -41,7 +41,6 @@
 		@include('common.spacer')
 		
 		<div class="container">
-			<p>{{ $cat->slug }}</p>
 			<div class="row">
 
 				<!-- Sidebar -->
