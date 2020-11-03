@@ -34,9 +34,9 @@ class SearchController extends BaseController
 	/**
 	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
 	 */
-	public function index($countryCode, $subCatSlug, $location, $locationID)
+	public function index($subCatSlug, $location, $locationID)
 	{
-		dd ($countryCode);
+		dd ($subCatSlug);
 		view()->share('isIndexSearch', $this->isIndexSearch);
 
 		// Pre-Search
