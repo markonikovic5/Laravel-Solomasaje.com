@@ -85,7 +85,7 @@ class SearchController extends BaseController
 		// Meta Tags
 		MetaTag::set('title', $title);
 		MetaTag::set('description', $title);
-		
+		dd ('this is searchcontroller/index end');
 		return view('search.serp');
 	}
 }
