@@ -41,24 +41,24 @@ class SearchController extends BaseController
 		// Pre-Search
 		if (request()->filled('c')) {
 			$catId = Category::getFieldId(request()->get('c'));
-			if (request()->filled('sc')) {
-				$subCatId = Category::getFieldId(request()->get('sc'));
-				$this->getCategory($catId, $subCatId);
+			// if (request()->filled('sc')) {
+			// 	$subCatId = Category::getFieldId(request()->get('sc'));
+			// 	$this->getCategory($catId, $subCatId);
 				
-				// Get Category nested IDs
-				$catNestedIds = (object)[
-					'parentId' => $catId,
-					'id'       => $subCatId,
-				];
-			} else {
-				$this->getCategory($catId);
+			// 	// Get Category nested IDs
+			// 	$catNestedIds = (object)[
+			// 		'parentId' => $catId,
+			// 		'id'       => $subCatId,
+			// 	];
+			// } else {
+			// 	$this->getCategory($catId);
 				
-				// Get Category nested IDs
-				$catNestedIds = (object)[
-					'parentId' => 0,
-					'id'       => $catId,
-				];
-			}
+			// 	// Get Category nested IDs
+			// 	$catNestedIds = (object)[
+			// 		'parentId' => 0,
+			// 		'id'       => $catId,
+			// 	];
+			// }
 
 			// Get Custom Fields
 			// $customFields = CategoryField::getFields($catNestedIds);
