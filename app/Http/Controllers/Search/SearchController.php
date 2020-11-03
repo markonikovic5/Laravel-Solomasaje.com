@@ -34,13 +34,12 @@ class SearchController extends BaseController
 	/**
 	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
 	 */
-	public function index($subCatSlug, $location, $locationID)
+	public function index($catName, $location, $locationID)
 	{
-		dd ($subCatSlug);
 		view()->share('isIndexSearch', $this->isIndexSearch);
 
 		// Pre-Search
-		$subCatSlug = Category::getBCategory($catSlug);
+		$subCatSlug = Category::getBCategory($catName);
 		if($subCatSlug->parent_id == 0){
 			// Get Category nested IDs
 			$catNestedIds = (object)[
@@ -48,7 +47,7 @@ class SearchController extends BaseController
 				'id'       => $subCatSlug->id,
 			];
 		} else {
-			$catData = Category::getBCategory($catSlug);
+			$catData = Category::getBCategory($subCatSlug);
 
 			// Get Category nested IDs
 			$catNestedIds = (object)[
