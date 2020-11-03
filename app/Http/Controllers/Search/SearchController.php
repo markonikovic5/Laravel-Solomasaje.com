@@ -39,7 +39,7 @@ class SearchController extends BaseController
 		view()->share('isIndexSearch', $this->isIndexSearch);
 
 		// Pre-Search
-		$subCatSlug = Category::getCategory($catName);
+		$subCatSlug = Category::getCategory($catSlug);
 		if($subCatSlug->parent_id == 0){
 			// Get Category nested IDs
 			$catNestedIds = (object)[
