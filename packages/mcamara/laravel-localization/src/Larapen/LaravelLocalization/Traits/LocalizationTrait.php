@@ -304,7 +304,6 @@ trait LocalizationTrait
 			
 			$url = app('url')->to($localePath . $routePath) . $queryString;
 		} else {
-			dd ("this is city state");
 			$url = '###' . $url . '###';
 		}
 		

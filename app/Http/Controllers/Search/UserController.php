@@ -31,7 +31,6 @@ class UserController extends BaseController
 	 */
 	public function index($countryCode, $userId = null)
 	{
-		dd ("this is user controller index");
 		// Check multi-countries site parameters
 		if (!config('settings.seo.multi_countries_urls')) {
 			$userId = $countryCode;
@@ -78,7 +77,6 @@ class UserController extends BaseController
 	 */
 	private function searchByUserId($userId, $username = null)
 	{
-		dd ("this is usercontroller searchbyUserID");
 		// Search
 		$search = new $this->searchClass();
 		$data = $search->setUser($userId)->fetch();
