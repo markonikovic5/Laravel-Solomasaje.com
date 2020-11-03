@@ -110,7 +110,7 @@ class Category extends BaseModel
 	}
 
 	public static function getCategory($catSlug){
-		$catData = Category::where(['slug' => $catName])->get();
+		$catData = Category::where(['slug' => $catSlug])->get();
 		if(count($catData) == 0){
 			abort('301');
 		} else {
