@@ -172,7 +172,6 @@ class CategoryField extends BaseModel
 				->orWhere('category_id', $catNestedIds->id)
 				->orderBy('lft', 'ASC')
 				->get();
-			dd ($catFields);
 		} else {
 			if (!empty($catNestedIds->parentId)) {
 				$catFields = self::with(['field' => function ($builder) {
