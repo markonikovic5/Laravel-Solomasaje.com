@@ -159,7 +159,6 @@ class UrlGen
 					'countryCode' => $countryCode,
 					'catSlug'     => $entry->slug,
 				];
-
 				$url = lurl(trans('routes.v-search-cat', $attr, $locale), $attr, $locale);
 			} else {
 				$url = '#';
@@ -171,21 +170,7 @@ class UrlGen
 					'catSlug'     => $entry->parent->slug,
 					'subCatSlug'  => $entry->slug,
 				];
-
 				$url = lurl(trans('routes.v-search-subCat', $attr, $locale), $attr, $locale);
-			} else {
-				$url = '#';
-			}
-		} else if ($level == 2) {
-			if (isset($entry->catSlug) && isset($entry->location)) {
-				$attr = [
-					'countryCode'  => $countryCode,
-					'catSlug'      => $entry->catSlug,
-					'location'     => $entry->location,
-					'locationId'   => $entry->locationId,
-				];
-				// dd ($entry->catSlug);
-				$url = lurl(trans('routes.v-search', $attr, $locale), $attr, $locale);
 			} else {
 				$url = '#';
 			}

@@ -34,7 +34,7 @@ class CategoryController extends BaseController
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|\Illuminate\View\View
      */
     public function index($countryCode, $catSlug, $subCatSlug = null)
-    {        
+    {
         // Check multi-countries site parameters
         if (!config('settings.seo.multi_countries_urls')) {
             $subCatSlug = $catSlug;

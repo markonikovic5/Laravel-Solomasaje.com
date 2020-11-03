@@ -109,22 +109,14 @@ class Category extends BaseModel
 		static::addGlobalScope(new ActiveScope());
 	}
 
-	public static function getCategory($catSlug){
-		$catData = Category::where(['slug' => $catSlug])->get();
-		if(count($catData) == 0){
+	public static function getFieldId($catName){
+		$catId = Category::where(['name' => $catName])->get('id');
+		if(count($catId) == 0){
 			abort('301');
 		} else {
-			return $catData[0];
+			$catId = $catId[0]->id;
+			return $catId;
 		}
-	}
-
-	public static function getPCategory($subCatSlug){
-		$catData = Category::where(['id' => $subCatSlug->parent_id])->get();
-		if(count($catData) == 0){
-			abort('301');
-		} else {
-			return $catData[0];
-		}		
 	}
 	
 	/**
