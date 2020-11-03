@@ -170,7 +170,7 @@
 									</strong>
 								@else
 									<a href="{{ \App\Helpers\UrlGen::category($locationParams, 2) }}" title="{{ $city->name }}">
-										{{ $cat->slug }}
+										{{ $city->name }}
 									</a>
 								@endif
 							</li>
