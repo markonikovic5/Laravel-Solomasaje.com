@@ -25,7 +25,6 @@
 
 @section('content')
 	<div class="main-container">
-		<p>{{ $cat->slug }}</p>
 		@include('search.inc.breadcrumbs')
 		@include('search.inc.categories')
 		<?php if (\App\Models\Advertising::where('slug', 'top')->count() > 0): ?>
