@@ -216,13 +216,7 @@ trait LocalizationTrait
 			) {
 
 			$cat = self::getCategoryBySlug($attributes['catSlug'], $locale);
-			// if (isset($attributes['location'])) {
-			// 	dd ($cat);
-			// }			
 			if (!empty($cat)) {
-				// if (isset($attributes['location'])) {
-				// 	dd (isset($attributes['location']));
-				// }
 
 				$routePath = '';
 				if (isset($attributes['subCatSlug']) && !empty($attributes['subCatSlug'])) {
@@ -236,6 +230,7 @@ trait LocalizationTrait
 							], $locale);
 					}
 				} else if(isset($attributes['location']) && !empty($attributes['location'])) {
+					dd ($attributes);
 					$routePath = trans('routes.v-search', [
 							'countryCode'  => $countryCode,
 							'catSlug'      => $attributes->catSlug,
