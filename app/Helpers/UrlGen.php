@@ -178,13 +178,13 @@ class UrlGen
 			}
 		} else if ($level == 2) {
 			if (isset($entry->catSlug) && isset($entry->location)) {
+				dd ($entry);
 				$attr = [
 					'countryCode'  => $countryCode,
 					// 'catSlug'      => $entry->catSlug,
 					'location'     => $entry->location,
 					'locationId'   => $entry->locationId,
 				];
-				dd ("ssss");
 				$url = lurl(trans('routes.v-search', $attr, $locale), $attr, $locale);
 			} else {
 				$url = '#';
