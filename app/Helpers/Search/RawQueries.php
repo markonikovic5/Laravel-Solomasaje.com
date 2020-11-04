@@ -302,7 +302,7 @@ class RawQueries
 		// Count all entries
 		$sql = "SELECT COUNT(*) AS total FROM (" . $sql . ") AS x";
 		$all = self::execute($sql, $this->bindings);
-		dd (isset($all[0]));
+		dd ($all[0]);
 		$count['all'] = (isset($all[0])) ? $all[0]->total : 0;
 		
 		// Get the Post's Types
