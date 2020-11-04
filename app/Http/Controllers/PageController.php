@@ -47,7 +47,7 @@ class PageController extends FrontController
 		// Get the Page
 		$page = Page::where('slug', $slug)->trans()->first();
 		if (empty($page)) {
-			abort(404);
+			abort(301);
 		}
 		view()->share('page', $page);
 		view()->share('uriPathPageSlug', $slug);
