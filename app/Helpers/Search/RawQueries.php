@@ -437,7 +437,7 @@ class RawQueries
 			$this->setKeywords(request()->get('q'));
 		}
 		
-		dd (isset($sdfsdfsd));
+		dd (isset($sdfsdfsd['sdfsdfsdf']));
 		// Check & Set category filter
 		if (request()->filled('c')) {
 			if (request()->filled('sc')) {
