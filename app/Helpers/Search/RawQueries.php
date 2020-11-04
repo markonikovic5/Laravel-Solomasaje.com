@@ -110,7 +110,6 @@ class RawQueries
 		// Pre-Search
 		if (isset($preSearch['city']) && !empty($preSearch['city'])) {
 			$this->city = $preSearch['city'];
-			dd ($this->city);
 		}
 		if (isset($preSearch['admin']) && !empty($preSearch['admin'])) {
 			$this->admin = $preSearch['admin'];
@@ -452,6 +451,7 @@ class RawQueries
 			$this->setLocationByAdminCode($this->admin->code);
 		}
 		if (request()->has('l') && !empty($this->city)) {
+			dd ("this is city");
 			$this->setLocationByCity($this->city);
 		}
 	}
