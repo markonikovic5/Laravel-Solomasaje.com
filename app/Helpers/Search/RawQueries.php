@@ -259,8 +259,8 @@ class RawQueries
 		$posts = self::execute($sql, $this->bindings);
 		
 		// Count real query posts
-		dd (request()->filled('type'));
 		if (request()->filled('type') && !empty(request()->get('type'))) {
+			dd ($count->has(request()->get('type')));
 			$total = ($count->has(request()->get('type'))) ? $count->get(request()->get('type')) : 0;
 		} else {
 			$total = $count->get('all');
