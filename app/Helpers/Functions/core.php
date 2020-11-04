@@ -299,11 +299,10 @@ function qsurl($path = null, $inputArray = [], $secure = null, $localized = true
 			}
 		}, ARRAY_FILTER_USE_BOTH);
 	}
-	
+
 	if (!empty($inputArray)) {
 		$url = $url . '?' . httpBuildQuery($inputArray);
 	}
-	
 	return $url;
 }
 
@@ -319,7 +318,6 @@ function httpBuildQuery($array)
 	
 	$queryString = http_build_query($array);
 	$queryString = str_replace(['%5B', '%5D'], ['[', ']'], $queryString);
-	
 	return $queryString;
 }
 
@@ -340,7 +338,7 @@ function lurl($path = null, $attributes = [], $locale = null)
 	if (request()->segment(1) == admin_uri()) {
 		return url($locale . '/' . $path);
 	}
-	
+
 	return \Larapen\LaravelLocalization\Facades\LaravelLocalization::getLocalizedURL($locale, $path, $attributes);
 }
 
