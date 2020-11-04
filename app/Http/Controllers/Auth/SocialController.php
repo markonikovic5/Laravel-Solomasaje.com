@@ -67,7 +67,7 @@ class SocialController extends FrontController
 		// Get the Provider and verify that if it's supported
 		$provider = getSegment(2);
 		if (!in_array($provider, $this->network)) {
-			abort(301);
+			abort(404);
 		}
 		
 		// If previous page is not the Login page...
@@ -90,7 +90,7 @@ class SocialController extends FrontController
 		// Get the Provider and verify that if it's supported
 		$provider = getSegment(2);
 		if (!in_array($provider, $this->network)) {
-			abort(301);
+			abort(404);
 		}
 		
 		// Check and retrieve previous URL to show the login error on it.

@@ -312,7 +312,7 @@ class CreateController extends FrontController
 			// Get the Post
 			$post = Post::withoutGlobalScopes([VerifiedScope::class, ReviewedScope::class])->where('id', session('tmpPostId'))->where('tmp_token', $tmpToken)->first();
 			if (empty($post)) {
-				abort(301);
+				abort(404);
 			}
 			
 			// Apply finish actions

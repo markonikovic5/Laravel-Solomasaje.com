@@ -30,11 +30,11 @@ class ImageResponse
 	public static function create($disk, $filePath)
 	{
 		if (!$disk instanceof FilesystemAdapter) {
-			abort(301);
+			abort(404);
 		}
 		
 		if (!$disk->exists($filePath)) {
-			abort(301);
+			abort(404);
 		}
 		
 		$mime = $disk->getMimetype($filePath);

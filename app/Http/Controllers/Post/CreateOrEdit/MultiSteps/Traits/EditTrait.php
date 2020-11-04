@@ -54,7 +54,7 @@ trait EditTrait
         }
         
         if (empty($post)) {
-            abort(301);
+            abort(404);
         }
         
         view()->share('post', $post);
@@ -106,7 +106,7 @@ trait EditTrait
         }
         
         if (empty($post)) {
-            abort(301);
+            abort(404);
         }
         
         // Get the Post's City

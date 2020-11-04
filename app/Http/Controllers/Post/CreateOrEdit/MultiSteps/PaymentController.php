@@ -140,7 +140,7 @@ class PaymentController extends FrontController
 		}
 		
 		if (empty($post)) {
-			abort(301);
+			abort(404);
 		}
 		
 		view()->share('post', $post);
@@ -186,7 +186,7 @@ class PaymentController extends FrontController
 		}
 		
 		if (empty($post)) {
-			abort(301);
+			abort(404);
 		}
 		
 		// MAKE A PAYMENT (IF NEEDED)

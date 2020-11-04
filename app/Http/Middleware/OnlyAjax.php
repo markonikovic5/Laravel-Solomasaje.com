@@ -16,7 +16,7 @@ class OnlyAjax
 	public function handle($request, Closure $next)
 	{
 		if (!$request->ajax()) {
-			abort(301);
+			abort(404);
 		}
 		
 		return $next($request);

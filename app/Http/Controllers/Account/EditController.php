@@ -175,7 +175,7 @@ class EditController extends AccountBaseController
 			if ($request->ajax()) {
 				return response()->json(['error' => t('User not found')]);
 			}
-			abort(301);
+			abort(404);
 		}
 		
 		// Save all pictures
@@ -245,7 +245,7 @@ class EditController extends AccountBaseController
 			if ($request->ajax()) {
 				return response()->json(['error' => t('User not found')]);
 			}
-			abort(301);
+			abort(404);
 		}
 		
 		// Remove all the current user's photos, by removing his photo directory.
