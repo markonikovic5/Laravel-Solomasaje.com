@@ -292,7 +292,7 @@ class RawQueries
 	{
 		// Get global where clause
 		$where = $wherePostType = $this->arrSql->where;
-		dd ($where);
+
 		// Remove the type with her SQL clause
 		if (request()->filled('type')) {
 			unset($where['tPost.post_type_id']);
@@ -302,6 +302,7 @@ class RawQueries
 		// Count all entries
 		$sql = "SELECT COUNT(*) AS total FROM (" . $sql . ") AS x";
 		$all = self::execute($sql, $this->bindings);
+		dd ($all);
 		$count['all'] = (isset($all[0])) ? $all[0]->total : 0;
 		
 		// Get the Post's Types
