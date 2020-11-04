@@ -156,9 +156,9 @@ trait TitleTrait
 		if (isset($this->isCatSearch) && $this->isCatSearch) {
 			if (isset($this->cat) && !empty($this->cat)) {
 				// SubCategory
-				dd ("subCategory");
 				if (isset($this->isSubCatSearch) && $this->isSubCatSearch) {
 					if (isset($this->subCat) && !empty($this->subCat)) {
+						dd ("subCategory");
 						$htmlTitle .= ' ' . t('in') . ' ';
 						
 						if (request()->filled('sc')) {
