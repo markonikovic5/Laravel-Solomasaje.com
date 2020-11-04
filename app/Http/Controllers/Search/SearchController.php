@@ -73,7 +73,6 @@ class SearchController extends BaseController
 		];
 		
 		// Search
-		dd ($preSearch);		
 		$search = new $this->searchClass($preSearch);
 		$data = $search->fetch();
 		// Export Search Result

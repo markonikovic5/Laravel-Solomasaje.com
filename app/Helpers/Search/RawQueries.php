@@ -110,6 +110,7 @@ class RawQueries
 		// Pre-Search
 		if (isset($preSearch['city']) && !empty($preSearch['city'])) {
 			$this->city = $preSearch['city'];
+			dd ($this->city);
 		}
 		if (isset($preSearch['admin']) && !empty($preSearch['admin'])) {
 			$this->admin = $preSearch['admin'];
