@@ -435,7 +435,7 @@ class RawQueries
 		if (request()->filled('q')) {
 			$this->setKeywords(request()->get('q'));
 		}
-		dd ($searchData);
+		dd ($searchData['catSlug']);
 		// Check & Set category filter
 		if (request()->filled('c')) {
 			if (request()->filled('sc')) {
