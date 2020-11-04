@@ -158,7 +158,6 @@ trait TitleTrait
 				// SubCategory
 				if (isset($this->isSubCatSearch) && $this->isSubCatSearch) {
 					if (isset($this->subCat) && !empty($this->subCat)) {
-						dd ("subCategory");
 						$htmlTitle .= ' ' . t('in') . ' ';
 						
 						if (request()->filled('sc')) {
