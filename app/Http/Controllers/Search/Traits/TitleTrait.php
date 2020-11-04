@@ -104,7 +104,7 @@ trait TitleTrait
 		$fullUrl = rawurldecode(url(request()->getRequestUri()));
 		$tmpExplode = explode('?', $fullUrl);
 		$fullUrlNoParams = current($tmpExplode);
-		dd ($fullUrl);
+		dd ($tmpExplode);
 		// Title
 		$htmlTitle = '';
 		
