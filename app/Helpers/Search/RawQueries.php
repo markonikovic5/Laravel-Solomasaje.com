@@ -263,7 +263,7 @@ class RawQueries
 			$total = ($count->has(request()->get('type'))) ? $count->get(request()->get('type')) : 0;
 		} else {
 			$total = $count->get('all');
-			dd ($total);
+			dd ($count);
 		}
 		
 		// Paginate
