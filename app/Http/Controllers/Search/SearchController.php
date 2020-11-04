@@ -77,10 +77,10 @@ class SearchController extends BaseController
 			'admin' => (isset($admin) && !empty($admin)) ? $admin : null,
 		];
 		
+		dd ($preSearch);
 		// Search
 		$search = new $this->searchClass($preSearch);
 		$data = $search->fetch();
-		dd ($data);
 		
 		// Export Search Result
 		view()->share('count', $data['count']);
