@@ -85,7 +85,7 @@ class SearchController extends BaseController
 			'city'  => (isset($city) && !empty($city)) ? $city : null,
 			'admin' => (isset($admin) && !empty($admin)) ? $admin : null,
 		];
-		dd ($searchData);
+
 		// Search
 		$search = new $this->searchClass($preSearch);
 		$data = $search->fetch($searchData);
