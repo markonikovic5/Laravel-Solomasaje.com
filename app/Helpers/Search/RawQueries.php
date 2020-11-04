@@ -240,9 +240,8 @@ class RawQueries
 	 */
 	public function fetch($searchData = [])
 	{
-		dd ($searchData);
 		// Apply primary filters
-		$this->setPrimaryFilters($searchData = []);
+		$this->setPrimaryFilters($searchData);
 		
 		// Check & Set other requests filters
 		$this->setNonPrimaryFilters();
