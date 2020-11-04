@@ -445,7 +445,7 @@ class RawQueries
 				$this->setCategory(request()->get('c'));
 			}
 		}
-		dd ("setPrimaryFilters");
+		dd (request()->filled('r'));
 		// Check & Set location filter
 		if (request()->filled('r') && !empty($this->admin) && !request()->filled('l')) {
 			$this->setLocationByAdminCode($this->admin->code);
