@@ -2,7 +2,7 @@
 <?php
     $fullUrl = url(request()->getRequestUri());
     $tmpExplode = explode('?', $fullUrl);
-	$fullUrlNoParams = current($tmpExplode);
+    $fullUrlNoParams = current($tmpExplode);
 ?>
 <div class="col-md-3 page-sidebar mobile-filter-sidebar pb-4">
 	<aside>
@@ -156,20 +156,21 @@
 								$attr = ['countryCode' => config('country.icode')];
 								$fullUrlLocation = lurl(trans('routes.v-search', $attr), $attr);
 								$locationParams = [
-									'catSlug' => (isset($subCat)) ? $subCat->slug : $cat->slug,
-									'location'  => $city->name,
-									'locationId'  => $city->id,
+									'l'  => $city->id,
+									'r'  => '',
+									'c'  => (isset($cat)) ? $cat->name : '',
+									'sc' => (isset($subCat)) ? $subCat->name : '',
 								];
 							?>
 							<li>
 								@if ((isset($uriPathCityId) and $uriPathCityId == $city->id) or (request()->input('l')==$city->id))
 									<strong>
-										<a href="{{ \App\Helpers\UrlGen::category($locationParams, 2) }}" title="{{ $city->name }}">
+										<a href="{!! qsurl($fullUrlLocation, array_merge(request()->except(['page'] + array_keys($locationParams)), $locationParams), null, false) !!}" title="{{ $city->name }}">
 											{{ $city->name }}
 										</a>
 									</strong>
 								@else
-									<a href="{{ \App\Helpers\UrlGen::category($locationParams, 2) }}" title="{{ $city->name }}">
+									<a href="{!! qsurl($fullUrlLocation, array_merge(request()->except(['page'] + array_keys($locationParams)), $locationParams), null, false) !!}" title="{{ $city->name }}">
 										{{ $city->name }}
 									</a>
 								@endif
