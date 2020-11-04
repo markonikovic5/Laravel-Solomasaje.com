@@ -450,7 +450,7 @@ class RawQueries
 			$this->setLocationByAdminCode($this->admin->code);
 		}
 
-		if ($searchData['city'] && !empty($this->city)) {
+		if (isset($searchData['city']) && $searchData['city'] && !empty($this->city)) {
 			$this->setLocationByCity($this->city);
 		}
 	}
