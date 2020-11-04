@@ -174,7 +174,7 @@ trait TitleTrait
 						$htmlTitle .= '</a>';
 					}
 				}
-				if ($is_subCategory) {
+				if (!$is_subCategory) {
 					$htmlTitle .= ' ' . t('in') . ' ';
 					
 					if (request()->filled('c')) {
