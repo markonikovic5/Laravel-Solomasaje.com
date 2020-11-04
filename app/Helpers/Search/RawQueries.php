@@ -437,7 +437,7 @@ class RawQueries
 		}
 
 		// Check & Set category filter
-		if ($searchData['subCatSlug']) {
+		if (isset($searchData['subCatSlug']) && $searchData['subCatSlug']) {
 			if ($searchData['catSlug'] != 0) {
 				$this->setCategory($searchData['catSlug'], $searchData['subCatSlug']);
 			} else {
