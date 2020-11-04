@@ -254,7 +254,7 @@ class RawQueries
 		
 		// Get the paginated SQL statements
 		$sql = $sql . "\n" . "LIMIT " . (int)$this->sqlCurrLimit . ", " . (int)$this->perPage;
-		dd ($this->bindings);
+
 		// Execute the SQL query
 		$posts = self::execute($sql, $this->bindings);
 		
