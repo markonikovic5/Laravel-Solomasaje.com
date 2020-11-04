@@ -100,7 +100,7 @@ class DetailsController extends FrontController
 		
 		// Show 404 error if the Post's ID is not numeric
 		if (!isset($parameters['id']) || empty($parameters['id']) || !is_numeric($parameters['id'])) {
-			abort(404);
+			abort(301);
 		}
 		
 		// Set the Parameters

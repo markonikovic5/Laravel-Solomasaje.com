@@ -173,7 +173,7 @@ trait PreSearchTrait
 			// Get the Popular City (Redirect to search by City)
 			$this->city = $this->getPopularCityByAdminName($adminName);
 			if (empty($this->city)) {
-				abort(404);
+				abort(301);
 			}
 			
 			$fullUrl = url(request()->getRequestUri());

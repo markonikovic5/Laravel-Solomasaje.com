@@ -143,7 +143,7 @@ class EditController extends FrontController
 					->first();
 	
 		if (empty($post)) {
-			abort(404);
+			abort(301);
 		}
 	
 		view()->share('post', $post);
@@ -185,7 +185,7 @@ class EditController extends FrontController
 					->first();
 	
 		if (empty($post)) {
-			abort(404);
+			abort(301);
 		}
 	
 		// Get the Post's City

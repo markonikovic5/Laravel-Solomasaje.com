@@ -114,7 +114,7 @@ class PhotoController extends FrontController
 		}
 		
 		if (empty($post)) {
-			abort(404);
+			abort(301);
 		}
 		
 		view()->share('post', $post);
@@ -187,7 +187,7 @@ class PhotoController extends FrontController
 			if ($request->ajax()) {
 				return response()->json(['error' => t('Post not found')]);
 			}
-			abort(404);
+			abort(301);
 		}
 		
 		// Get pictures limit
@@ -322,7 +322,7 @@ class PhotoController extends FrontController
 			if ($request->ajax()) {
 				return response()->json(['error' => t('Post not found')]);
 			}
-			abort(404);
+			abort(301);
 		}
 		
 		$picture = Picture::withoutGlobalScopes([ActiveScope::class])->find($pictureId);

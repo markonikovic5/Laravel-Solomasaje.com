@@ -35,7 +35,7 @@ class CategoryFieldController extends PanelController
 		// Get the parent Entity slug
 		$this->parentEntity = request()->segment(2);
 		if (!in_array($this->parentEntity, $parentEntities)) {
-			abort(404);
+			abort(301);
 		}
 		
 		// Category => CategoryField

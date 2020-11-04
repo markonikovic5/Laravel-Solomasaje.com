@@ -68,7 +68,7 @@ class PostsController extends AccountBaseController
 				return $this->getPendingApprovalPosts();
 				break;
 			default:
-				abort(404);
+				abort(301);
 		}
 	}
 	

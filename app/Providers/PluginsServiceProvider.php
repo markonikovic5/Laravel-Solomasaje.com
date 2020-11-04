@@ -75,7 +75,7 @@ class PluginsServiceProvider extends ServiceProvider
 				return $response;
 			}
 			
-			abort(404);
+			abort(301);
 		});
 		
 		// Public - Assets
@@ -90,7 +90,7 @@ class PluginsServiceProvider extends ServiceProvider
 				}
 			}
 			
-			abort(404);
+			abort(301);
 		});
 	}
 }
