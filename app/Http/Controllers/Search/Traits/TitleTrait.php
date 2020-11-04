@@ -172,7 +172,7 @@ trait TitleTrait
 						$htmlTitle .= '</a>';
 					}
 				}
-				
+				dd ($htmlTitle);
 				$htmlTitle .= ' ' . t('in') . ' ';
 				
 				if (request()->filled('c')) {
