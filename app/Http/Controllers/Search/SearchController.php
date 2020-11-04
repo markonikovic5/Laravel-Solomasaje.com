@@ -74,8 +74,8 @@ class SearchController extends BaseController
 		
 		// Search
 		$search = new $this->searchClass($preSearch);
-		dd ($search);
 		$data = $search->fetch();
+		dd ($data);
 		
 		// Export Search Result
 		view()->share('count', $data['count']);
