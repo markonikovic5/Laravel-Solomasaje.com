@@ -248,7 +248,7 @@ class RawQueries
 		
 		// Get the SQL statements
 		$sql = $this->getSqlStatements();
-		
+		dd ($sql);
 		// Count the results
 		$count = $this->countFetch($sql);
 		
@@ -263,7 +263,6 @@ class RawQueries
 			$total = ($count->has(request()->get('type'))) ? $count->get(request()->get('type')) : 0;
 		} else {
 			$total = $count->get('all');
-			dd ($count);
 		}
 		
 		// Paginate
