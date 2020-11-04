@@ -248,7 +248,7 @@ class RawQueries
 		
 		// Get the SQL statements
 		$sql = $this->getSqlStatements();
-		dd ($sql);
+
 		// Count the results
 		$count = $this->countFetch($sql);
 		
@@ -292,7 +292,7 @@ class RawQueries
 	{
 		// Get global where clause
 		$where = $wherePostType = $this->arrSql->where;
-		
+		dd ($where);
 		// Remove the type with her SQL clause
 		if (request()->filled('type')) {
 			unset($where['tPost.post_type_id']);
