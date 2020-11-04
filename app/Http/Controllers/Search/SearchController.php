@@ -48,6 +48,13 @@ class SearchController extends BaseController
 				'parentId' => 0,
 				'id'       => $subCatSlug->id,
 			];
+
+			// Category data
+			$searchData = [	
+				'catSlug' => 0,
+				'subCatSlug' => $subCatSlug->id,
+				'city' => $locationID,
+			];
 		} else {
 			$catData = Category::getPCategory($subCatSlug);
 			$this->getCategory($catData->id, $subCatSlug->id);
@@ -56,6 +63,13 @@ class SearchController extends BaseController
 			$catNestedIds = (object)[
 				'parentId' => $catData->id,
 				'id'       => $subCatSlug->id,
+			];
+
+			// Category data
+			$searchData = [	
+				'catSlug' => $catData->id,
+				'subCatSlug' => $subCatSlug->id,
+				'city' => $locationID,
 			];
 		}
 		
@@ -74,7 +88,7 @@ class SearchController extends BaseController
 		
 		// Search
 		$search = new $this->searchClass($preSearch);
-		$data = $search->fetch();
+		$data = $search->fetch($searchData);
 		// Export Search Result
 		view()->share('count', $data['count']);
 		view()->share('paginator', $data['paginator']);

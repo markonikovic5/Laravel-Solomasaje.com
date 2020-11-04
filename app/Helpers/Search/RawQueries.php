@@ -238,10 +238,10 @@ class RawQueries
 	 *
 	 * @return array
 	 */
-	public function fetch()
+	public function fetch($searchData = [])
 	{
 		// Apply primary filters
-		$this->setPrimaryFilters();
+		$this->setPrimaryFilters($searchData = []);
 		
 		// Check & Set other requests filters
 		$this->setNonPrimaryFilters();
@@ -429,13 +429,13 @@ class RawQueries
 	/**
 	 * Apply primary filters
 	 */
-	public function setPrimaryFilters()
+	public function setPrimaryFilters($searchData = [])
 	{
 		// Check & Set keyword filter
 		if (request()->filled('q')) {
 			$this->setKeywords(request()->get('q'));
 		}
-		
+		dd ($searchData);
 		// Check & Set category filter
 		if (request()->filled('c')) {
 			if (request()->filled('sc')) {
@@ -449,7 +449,7 @@ class RawQueries
 		if (request()->filled('r') && !empty($this->admin) && !request()->filled('l')) {
 			$this->setLocationByAdminCode($this->admin->code);
 		}
-		dd ("this is city");
+
 		if (request()->has('l') && !empty($this->city)) {
 			$this->setLocationByCity($this->city);
 		}
