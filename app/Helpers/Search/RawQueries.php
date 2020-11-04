@@ -449,8 +449,8 @@ class RawQueries
 		if (request()->filled('r') && !empty($this->admin) && !request()->filled('l')) {
 			$this->setLocationByAdminCode($this->admin->code);
 		}
+		dd ("this is city");
 		if (request()->has('l') && !empty($this->city)) {
-			dd ("this is city");
 			$this->setLocationByCity($this->city);
 		}
 	}
