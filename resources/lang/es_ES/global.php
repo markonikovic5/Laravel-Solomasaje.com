@@ -363,7 +363,7 @@ return [
     'Date' => 'Recientes',
     'Around :distance :unit' => 'Masajes a menos de :distance :unit',
     'Around' => 'Masajes cercanos',
-    'All ads' => 'Todos los fichas TEST',
+    'All ads' => 'Todos los fichas',
     'Select your region' => 'Elige tu región',
     'Popular cities in' => 'Ciudades destacadas',
     'All regions' => 'Todas las regiones',
