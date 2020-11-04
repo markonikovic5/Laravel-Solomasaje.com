@@ -262,8 +262,8 @@ class RawQueries
 		if (request()->filled('type') && !empty(request()->get('type'))) {
 			$total = ($count->has(request()->get('type'))) ? $count->get(request()->get('type')) : 0;
 		} else {
-			dd ("total");
 			$total = $count->get('all');
+			dd ($total);
 		}
 		
 		// Paginate
