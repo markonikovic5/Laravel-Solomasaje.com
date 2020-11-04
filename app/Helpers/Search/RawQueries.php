@@ -254,7 +254,7 @@ class RawQueries
 		
 		// Get the paginated SQL statements
 		$sql = $sql . "\n" . "LIMIT " . (int)$this->sqlCurrLimit . ", " . (int)$this->perPage;
-		
+		dd ($this->bindings);
 		// Execute the SQL query
 		$posts = self::execute($sql, $this->bindings);
 		
@@ -435,13 +435,13 @@ class RawQueries
 		if (request()->filled('q')) {
 			$this->setKeywords(request()->get('q'));
 		}
-		dd ($searchData['catSlug']);
+
 		// Check & Set category filter
-		if (request()->filled('c')) {
-			if (request()->filled('sc')) {
-				$this->setCategory(request()->get('c'), request()->get('sc'));
+		if ($searchData['subCatSlug']) {
+			if ($searchData['catSlug'] != 0) {
+				$this->setCategory($searchData['catSlug'], $searchData['subCatSlug']);
 			} else {
-				$this->setCategory(request()->get('c'));
+				$this->setCategory($searchData['catSlug']);
 			}
 		}
 		
@@ -450,7 +450,7 @@ class RawQueries
 			$this->setLocationByAdminCode($this->admin->code);
 		}
 
-		if (request()->has('l') && !empty($this->city)) {
+		if ($searchData['city'] && !empty($this->city)) {
 			$this->setLocationByCity($this->city);
 		}
 	}
