@@ -437,6 +437,7 @@ class RawQueries
 			$this->setKeywords(request()->get('q'));
 		}
 		
+		dd (request()->filled('c'));
 		// Check & Set category filter
 		if (request()->filled('c')) {
 			if (request()->filled('sc')) {
@@ -445,7 +446,6 @@ class RawQueries
 				$this->setCategory(request()->get('c'));
 			}
 		}
-		dd (request()->filled('r'));
 		// Check & Set location filter
 		if (request()->filled('r') && !empty($this->admin) && !request()->filled('l')) {
 			$this->setLocationByAdminCode($this->admin->code);
