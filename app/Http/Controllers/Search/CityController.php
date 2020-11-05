@@ -52,13 +52,13 @@ class CityController extends BaseController
         $bcTab = $this->getBreadcrumb();
         
         $htmlTitle = $this->getHtmlTitle();
-        dd ($htmlTitle);
+        
         view()->share('bcTab', $bcTab);
         view()->share('htmlTitle', $htmlTitle);
         
         // Meta Tags
         $title = $this->getTitle();
-        dd ($title);
+        
         $description = t('Free ads in :location', ['location' => $this->city->name]) . ', 
             ' . config('country.name') . '. ' . t('Looking for a product or service') . ' - ' . $this->city->name . ', ' . config('country.name');
         dd ($description);
