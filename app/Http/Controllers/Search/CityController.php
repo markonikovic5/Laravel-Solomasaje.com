@@ -56,10 +56,10 @@ class CityController extends BaseController
         
         // Meta Tags
         $title = $this->getTitle();
-        dd ($title);
         $description = t('Free ads in :location', ['location' => $this->city->name]) . ', 
-            ' . config('country.name') . '. ' . t('Looking for a product or service') . ' - ' . $this->city->name . ', ' . config('country.name');
-
+        ' . config('country.name') . '. ' . t('Looking for a product or service') . ' - ' . $this->city->name . ', ' . config('country.name');
+        
+        dd ($description);
         MetaTag::set('title', $title);
         MetaTag::set('description', $description);
 
