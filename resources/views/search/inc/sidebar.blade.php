@@ -114,7 +114,8 @@
 				<?php $style = 'style="display: none;"'; ?>
 			@endif
         
-            <!-- Category -->
+			<!-- Category -->
+			<p>{{ $cat->name }}</p>
 			<div id="catsList" {!! (isset($style)) ? $style : '' !!}>
 				<div class="block-title has-arrow sidebar-header">
 					<h5><strong><a href="#">{{ t('All Categories') }}</a></strong></h5>
