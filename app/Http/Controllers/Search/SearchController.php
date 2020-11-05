@@ -34,50 +34,41 @@ class SearchController extends BaseController
 	/**
 	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
 	 */
-	public function index($catSlug, $location, $locationID)
+	public function index()
 	{
 		view()->share('isIndexSearch', $this->isIndexSearch);
 
 		// Pre-Search
-		$subCatSlug = Category::getCategory($catSlug);
-		if($subCatSlug->parent_id == 0){
-			$this->getCategory($subCatSlug->id);
-
-			// Get Category nested IDs
-			$catNestedIds = (object)[
-				'parentId' => 0,
-				'id'       => $subCatSlug->id,
-			];
-
-			// Category data
-			$searchData = [	
-				'catSlug' => 0,
-				'subCatSlug' => $subCatSlug->id,
-				'city' => $locationID,
-			];
-		} else {
-			$catData = Category::getPCategory($subCatSlug);
-			$this->getCategory($catData->id, $subCatSlug->id);
-
-			// Get Category nested IDs
-			$catNestedIds = (object)[
-				'parentId' => $catData->id,
-				'id'       => $subCatSlug->id,
-			];
-
-			// Category data
-			$searchData = [	
-				'catSlug' => $catData->id,
-				'subCatSlug' => $subCatSlug->id,
-				'city' => $locationID,
-			];
+		if (request()->filled('c')) {
+			$catId = Category::getFieldId(request()->get('c'));
+			if (request()->filled('sc')) {
+				$subCatId = Category::getFieldId(request()->get('sc'));
+				$this->getCategory($catId, $subCatId);
+				
+				// Get Category nested IDs
+				$catNestedIds = (object)[
+					'parentId' => $catId,
+					'id'       => $subCatId,
+				];
+			} else {
+				$this->getCategory($catId);
+				
+				// Get Category nested IDs
+				$catNestedIds = (object)[
+					'parentId' => 0,
+					'id'       => $catId,
+				];
+			}
+			
+			// Get Custom Fields
+			$customFields = CategoryField::getFields($catNestedIds);
+			view()->share('customFields', $customFields);
 		}
-		
-		// Get Custom Fields
-		$customFields = CategoryField::getFields($catNestedIds);
-		view()->share('customFields', $customFields);
-		if ($locationID) {
-			$city = $this->getCity($locationID);
+		if (request()->filled('l') || request()->filled('location')) {
+			$city = $this->getCity(request()->get('l'), request()->get('location'));
+		}
+		if (request()->filled('r') && !request()->filled('l')) {
+			$admin = $this->getAdmin(request()->get('r'));
 		}
 		
 		// Pre-Search values
@@ -85,10 +76,11 @@ class SearchController extends BaseController
 			'city'  => (isset($city) && !empty($city)) ? $city : null,
 			'admin' => (isset($admin) && !empty($admin)) ? $admin : null,
 		];
-
+		
 		// Search
 		$search = new $this->searchClass($preSearch);
-		$data = $search->fetch($searchData);
+		$data = $search->fetch();
+		
 		// Export Search Result
 		view()->share('count', $data['count']);
 		view()->share('paginator', $data['paginator']);
@@ -101,7 +93,7 @@ class SearchController extends BaseController
 		// Meta Tags
 		MetaTag::set('title', $title);
 		MetaTag::set('description', $title);
-
+		
 		return view('search.serp');
 	}
 }
