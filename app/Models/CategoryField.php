@@ -153,7 +153,7 @@ class CategoryField extends BaseModel
 		if (empty($catNestedIds->parentId) && empty($catNestedIds->id)) {
 			return collect($fields);
 		}
-
+		
 		// Get Post's Custom Fields values
 		$postFieldsValues = collect([]);
 		if (!empty($postId) && trim($postId) != '') {
