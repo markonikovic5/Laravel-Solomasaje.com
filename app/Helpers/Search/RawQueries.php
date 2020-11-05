@@ -238,23 +238,23 @@ class RawQueries
 	 *
 	 * @return array
 	 */
-	public function fetch()
+	public function fetch($searchData = [])
 	{
 		// Apply primary filters
-		$this->setPrimaryFilters();
+		$this->setPrimaryFilters($searchData);
 		
 		// Check & Set other requests filters
 		$this->setNonPrimaryFilters();
 		
 		// Get the SQL statements
 		$sql = $this->getSqlStatements();
-
+		
 		// Count the results
 		$count = $this->countFetch($sql);
 		
 		// Get the paginated SQL statements
 		$sql = $sql . "\n" . "LIMIT " . (int)$this->sqlCurrLimit . ", " . (int)$this->perPage;
-		
+
 		// Execute the SQL query
 		$posts = self::execute($sql, $this->bindings);
 		
@@ -292,7 +292,7 @@ class RawQueries
 	{
 		// Get global where clause
 		$where = $wherePostType = $this->arrSql->where;
-
+		
 		// Remove the type with her SQL clause
 		if (request()->filled('type')) {
 			unset($where['tPost.post_type_id']);
@@ -303,7 +303,6 @@ class RawQueries
 		$sql = "SELECT COUNT(*) AS total FROM (" . $sql . ") AS x";
 		$all = self::execute($sql, $this->bindings);
 		$count['all'] = (isset($all[0])) ? $all[0]->total : 0;
-		
 		// Get the Post's Types
 		$postTypes = PostType::where('translation_lang', config('lang.abbr'))->orderBy('name')->get();
 		
@@ -430,26 +429,28 @@ class RawQueries
 	/**
 	 * Apply primary filters
 	 */
-	public function setPrimaryFilters()
+	public function setPrimaryFilters($searchData = [])
 	{
 		// Check & Set keyword filter
 		if (request()->filled('q')) {
 			$this->setKeywords(request()->get('q'));
 		}
-		
+
 		// Check & Set category filter
-		if (request()->filled('c')) {
-			if (request()->filled('sc')) {
-				$this->setCategory(request()->get('c'), request()->get('sc'));
+		if (isset($searchData['subCatSlug']) && $searchData['subCatSlug']) {
+			if ($searchData['catSlug'] != 0) {
+				$this->setCategory($searchData['catSlug'], $searchData['subCatSlug']);
 			} else {
-				$this->setCategory(request()->get('c'));
+				$this->setCategory($searchData['catSlug']);
 			}
 		}
+		
 		// Check & Set location filter
 		if (request()->filled('r') && !empty($this->admin) && !request()->filled('l')) {
 			$this->setLocationByAdminCode($this->admin->code);
 		}
-		if (request()->has('l') && !empty($this->city)) {
+
+		if (isset($searchData['city']) && $searchData['city'] && !empty($this->city)) {
 			$this->setLocationByCity($this->city);
 		}
 	}
