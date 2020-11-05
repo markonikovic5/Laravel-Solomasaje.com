@@ -52,7 +52,7 @@ class CityController extends BaseController
         $bcTab = $this->getBreadcrumb();
         
         $htmlTitle = $this->getHtmlTitle();
-        dd ($htmlTitle);
+        
         view()->share('bcTab', $bcTab);
         view()->share('htmlTitle', $htmlTitle);
         
