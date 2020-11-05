@@ -50,8 +50,8 @@ class CityController extends BaseController
         
         // Get Titles
         $bcTab = $this->getBreadcrumb();
-        dd ($bcTab);
         $htmlTitle = $this->getHtmlTitle();
+        dd ($htmlTitle);
         view()->share('bcTab', $bcTab);
         view()->share('htmlTitle', $htmlTitle);
         
