@@ -43,11 +43,11 @@ class CityController extends BaseController
         // Get the City
         $this->city = City::findOrFail((int)$cityId);
         view()->share('city', $this->city);
-        dd ($this->city);
+
         // Search
         $search = new $this->searchClass();
         $data = $search->setLocationByCity($this->city)->fetch();
-
+        dd ($data);
         // Get Titles
         $bcTab = $this->getBreadcrumb();
         $htmlTitle = $this->getHtmlTitle();
