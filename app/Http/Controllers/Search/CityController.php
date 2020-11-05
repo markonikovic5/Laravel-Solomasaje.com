@@ -54,7 +54,7 @@ class CityController extends BaseController
         $htmlTitle = $this->getHtmlTitle();
         
         view()->share('bcTab', $bcTab);
-        view()->share('htmlTitle', $htmlTitle);
+        view()->share('htmlTitle', '$htmlTitle');
         
         // Meta Tags
         $title = $this->getTitle();
