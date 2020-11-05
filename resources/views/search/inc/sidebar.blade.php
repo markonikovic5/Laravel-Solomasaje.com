@@ -156,7 +156,7 @@
 								$attr = ['countryCode' => config('country.icode')];
 								$fullUrlLocation = lurl(trans('routes.v-search', $attr), $attr);
 								$locationParams = [
-									'catSlug' => (isset($subCat)) ? $subCat->slug : (isset($cat->slug)) ? $cat->slug : '',
+									'catSlug' => (isset($subCat)) ? $subCat->slug : ((isset($cat->slug)) ? $cat->slug : ''),
 									'location'  => $city->name,
 									'locationId'  => $city->id,
 								];
