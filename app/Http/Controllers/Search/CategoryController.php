@@ -40,7 +40,7 @@ class CategoryController extends BaseController
             $subCatSlug = $catSlug;
             $catSlug = $countryCode;
         }
-
+        dd ("catagoryController");
         view()->share('isCatSearch', $this->isCatSearch);
 
         // Get Category
