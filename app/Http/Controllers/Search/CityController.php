@@ -43,23 +43,25 @@ class CityController extends BaseController
         // Get the City
         $this->city = City::findOrFail((int)$cityId);
         view()->share('city', $this->city);
-
+        dd ($this->city);
         // Search
         $search = new $this->searchClass();
         $data = $search->setLocationByCity($this->city)->fetch();
-
+        dd ($data);
         // Get Titles
         $bcTab = $this->getBreadcrumb();
-        
+        dd ($bcTab);
         $htmlTitle = $this->getHtmlTitle();
+        dd ($htmlTitle);
         view()->share('bcTab', $bcTab);
         view()->share('htmlTitle', $htmlTitle);
         
         // Meta Tags
         $title = $this->getTitle();
+        dd ($title);
         $description = t('Free ads in :location', ['location' => $this->city->name]) . ', 
             ' . config('country.name') . '. ' . t('Looking for a product or service') . ' - ' . $this->city->name . ', ' . config('country.name');
-
+        dd ($description);
         MetaTag::set('title', $title);
         MetaTag::set('description', $description);
 
