@@ -8,7 +8,7 @@ use App\Models\Category;
 use App\Helpers\UrlGen;
 use Torann\LaravelMetaTags\Facades\MetaTag;
 
-class RedirectController extends Controller
+class RedirectController extends BaseController
 {
 	use PreSearchTrait;
 	
