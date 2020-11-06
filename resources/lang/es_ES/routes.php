@@ -34,4 +34,7 @@ return [
     'search-tag' => 'tag/{tag}',
     't-search-tag' => 'tag',
     'v-search-tag' => 'tag/:tag',
+    'search-redirect' => 'buscar',
+    't-search-redirect' => 'buscar',
+    'v-search-redirect' => 'buscar',
 ];
