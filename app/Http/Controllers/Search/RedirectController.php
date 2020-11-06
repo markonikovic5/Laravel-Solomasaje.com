@@ -32,9 +32,9 @@ class RedirectController extends BaseController
         }
 
 		if (request()->filled('c')) {
-            $cat = getCategorySlug(request()->get('c'));
+            $cat = Category::getCategorySlug(request()->get('c'));
 			if (request()->filled('sc')) {
-                $subCat = getCategorySlug(request()->get('sc'));
+                $subCat = Category::getCategorySlug(request()->get('sc'));
                 $locationParams = [
                     'catSlug' => $subCat->slug,
                     'location'  => $city->name,
