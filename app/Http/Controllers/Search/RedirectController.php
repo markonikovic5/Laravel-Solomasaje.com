@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Search;
 use App\Http\Controllers\Search\Traits\PreSearchTrait;
 use App\Models\CategoryField;
 use App\Models\Category;
+use App\Helpers\UrlGen;
 use Torann\LaravelMetaTags\Facades\MetaTag;
 
 class RedirectController extends Controller
@@ -23,64 +24,33 @@ class RedirectController extends Controller
 	 */
 	public function index()
 	{
-		view()->share('isIndexSearch', $this->isIndexSearch);
+        // Pre-Search
+        if (request()->filled('l') || request()->filled('location')) {
+            $city = $this->getCity(request()->get('l'), request()->get('location'));
+        } else {
+            abort('301');
+        }
 
-		// Pre-Search
 		if (request()->filled('c')) {
-			$catId = Category::getFieldId(request()->get('c'));
+            $cat = getCategorySlug(request()->get('c'));
 			if (request()->filled('sc')) {
-				$subCatId = Category::getFieldId(request()->get('sc'));
-				$this->getCategory($catId, $subCatId);
-				
-				// Get Category nested IDs
-				$catNestedIds = (object)[
-					'parentId' => $catId,
-					'id'       => $subCatId,
-				];
+                $subCat = getCategorySlug(request()->get('sc'));
+                $locationParams = [
+                    'catSlug' => $subCat->slug,
+                    'location'  => $city->name,
+                    'locationId'  => $city->id,
+                ];
 			} else {
-				$this->getCategory($catId);
-				
-				// Get Category nested IDs
-				$catNestedIds = (object)[
-					'parentId' => 0,
-					'id'       => $catId,
-				];
-			}
-			
-			// Get Custom Fields
-			$customFields = CategoryField::getFields($catNestedIds);
-			view()->share('customFields', $customFields);
-		}
-		if (request()->filled('l') || request()->filled('location')) {
-			$city = $this->getCity(request()->get('l'), request()->get('location'));
-		}
-		if (request()->filled('r') && !request()->filled('l')) {
-			$admin = $this->getAdmin(request()->get('r'));
-		}
-		
-		// Pre-Search values
-		$preSearch = [
-			'city'  => (isset($city) && !empty($city)) ? $city : null,
-			'admin' => (isset($admin) && !empty($admin)) ? $admin : null,
-		];
-		
-		// Search
-		$search = new $this->searchClass($preSearch);
-		$data = $search->fetch();
-		
-		// Export Search Result
-		view()->share('count', $data['count']);
-		view()->share('paginator', $data['paginator']);
-		
-		// Get Titles
-		$title = $this->getTitle();
-		$this->getBreadcrumb();
-		$this->getHtmlTitle();
-		
-		// Meta Tags
-		MetaTag::set('title', $title);
-		MetaTag::set('description', $title);
-		
-		return view('search.serp');
+                $locationParams = [
+                    'catSlug' => $cat->slug,
+                    'location'  => $city->name,
+                    'locationId'  => $city->id,
+                ];
+            }
+
+            return redirect(UrlGen::category($locationParams, 2));
+		} else {
+            abort('301');
+        }
 	}
 }

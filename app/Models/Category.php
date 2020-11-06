@@ -118,6 +118,15 @@ class Category extends BaseModel
 		}
 	}
 
+	public static function getCategorySlug($catId){
+		$catData = Category::where(['id' => $catId])->get('slug');
+		if(count($catData) == 0){
+			abort('301');
+		} else {
+			return $catData[0];
+		}
+	}
+
 	public static function getPCategory($subCatSlug){
 		$catData = Category::where(['id' => $subCatSlug->parent_id])->get();
 		if(count($catData) == 0){
