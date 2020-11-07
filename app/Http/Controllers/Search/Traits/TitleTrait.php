@@ -183,11 +183,11 @@ trait TitleTrait
 					$searchUrl = lurl(trans('routes.v-search', $attr), $attr);
 					$searchUrl = qsurl($searchUrl, request()->except(['c']), null, false);
 				}
-				dd ($searchUrl);
 				
 				$htmlTitle .= '<a rel="nofollow" class="jobs-s-tag" href="' . $searchUrl . '">';
 				$htmlTitle .= $this->cat->name;
 				$htmlTitle .= '</a>';
+				dd ($htmlTitle);
 			}
 		}
 		
