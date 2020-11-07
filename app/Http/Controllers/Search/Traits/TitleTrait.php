@@ -109,7 +109,7 @@ trait TitleTrait
 		
 		// Init.
 		$attr = ['countryCode' => config('country.icode')];
-		$htmlTitle .= '<a href="' . lurl(trans('routes.v-search', $attr), $attr) . '" class="current">';
+		$htmlTitle .= '<a href="' . lurl(trans('routes.v-search-redirect', $attr), $attr) . '" class="current">';
 		$htmlTitle .= '<span>' . t('All ads') . '</span>';
 		$htmlTitle .= '</a>';
 		
