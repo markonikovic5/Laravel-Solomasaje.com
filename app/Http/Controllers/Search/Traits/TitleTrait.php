@@ -167,7 +167,7 @@ trait TitleTrait
 							$searchUrl = UrlGen::category($this->cat);
 							$searchUrl = qsurl($searchUrl, request()->except(['sc']), null, false);
 						}
-						
+						dd ($searchUrl);
 						$htmlTitle .= '<a rel="nofollow" class="jobs-s-tag" href="' . $searchUrl . '">';
 						$htmlTitle .= $this->subCat->name;
 						$htmlTitle .= '</a>';
