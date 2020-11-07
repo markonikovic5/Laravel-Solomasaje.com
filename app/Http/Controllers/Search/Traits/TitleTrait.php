@@ -187,7 +187,6 @@ trait TitleTrait
 				$htmlTitle .= '<a rel="nofollow" class="jobs-s-tag" href="' . $searchUrl . '">';
 				$htmlTitle .= $this->cat->name;
 				$htmlTitle .= '</a>';
-				dd ($htmlTitle);
 			}
 		}
 		
