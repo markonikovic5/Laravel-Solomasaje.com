@@ -413,5 +413,6 @@ Route::group([
 		Route::get(LaravelLocalization::transRoute('routes.search-city'), 'Search\CityController@index');
 		Route::get(LaravelLocalization::transRoute('routes.search-subCat'), 'Search\CategoryController@index');
 		Route::get(LaravelLocalization::transRoute('routes.search-cat'), 'Search\CategoryController@index');
+		Route::get(LaravelLocalization::transRoute('routes.search-redirect'), 'Search\RedirectController@index');
 	});
 });
