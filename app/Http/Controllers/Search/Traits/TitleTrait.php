@@ -165,7 +165,6 @@ trait TitleTrait
 							$searchUrl = qsurl($fullUrlNoParams, request()->except(['sc']), null, false);
 						} else {
 							$searchUrl = UrlGen::category($this->cat);
-							dd (request()->except(['sc']));
 							$searchUrl = qsurl($searchUrl, request()->except(['sc']), null, false);
 						}
 						$htmlTitle .= '<a rel="nofollow" class="jobs-s-tag" href="' . $searchUrl . '">';
