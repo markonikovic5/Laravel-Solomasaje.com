@@ -155,7 +155,6 @@ trait TitleTrait
 		// Category
 		if (isset($this->isCatSearch) && $this->isCatSearch) {
 			if (isset($this->cat) && !empty($this->cat)) {
-				dd ("this is category");
 				// SubCategory
 				$is_subCategory = false;
 				if (isset($this->isSubCatSearch) && $this->isSubCatSearch) {
@@ -182,6 +181,7 @@ trait TitleTrait
 						$searchUrl = qsurl($fullUrlNoParams, request()->except(['c']), null, false);
 					} else {
 						$attr = ['countryCode' => config('country.icode')];
+						dd ($attr);
 						$searchUrl = lurl(trans('routes.v-search', $attr), $attr);
 						$searchUrl = qsurl($searchUrl, request()->except(['c']), null, false);
 					}
