@@ -175,13 +175,13 @@ trait TitleTrait
 					}
 				}
 				if (!$is_subCategory) {
-					$htmlTitle .= ' ' . t('in') . ' ';
+					$htmlTitle .= ' ' . t('in') . ' ';	
 					
 					if (request()->filled('c')) {
 						$searchUrl = qsurl($fullUrlNoParams, request()->except(['c']), null, false);
 					} else {
 						$attr = ['countryCode' => config('country.icode')];
-						dd ($attr);
+						dd (trans('routes.v-search', $attr));
 						$searchUrl = lurl(trans('routes.v-search', $attr), $attr);
 						$searchUrl = qsurl($searchUrl, request()->except(['c']), null, false);
 					}
