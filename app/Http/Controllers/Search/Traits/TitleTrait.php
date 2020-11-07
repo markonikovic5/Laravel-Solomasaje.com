@@ -155,6 +155,7 @@ trait TitleTrait
 		// Category
 		if (isset($this->isCatSearch) && $this->isCatSearch) {
 			if (isset($this->cat) && !empty($this->cat)) {
+				dd ("this is category");
 				// SubCategory
 				$is_subCategory = false;
 				if (isset($this->isSubCatSearch) && $this->isSubCatSearch) {
