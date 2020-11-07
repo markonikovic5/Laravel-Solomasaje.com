@@ -182,7 +182,6 @@ trait TitleTrait
 					} else {
 						$attr = ['countryCode' => config('country.icode')];
 						$searchUrl = lurl(trans('routes.v-search-redirect', $attr), $attr);
-						dd (request()->except(['c']));
 						$searchUrl = qsurl($searchUrl, request()->except(['c']), null, false);
 					}
 					
