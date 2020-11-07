@@ -104,12 +104,13 @@ trait TitleTrait
 		$fullUrl = rawurldecode(url(request()->getRequestUri()));
 		$tmpExplode = explode('?', $fullUrl);
 		$fullUrlNoParams = current($tmpExplode);
+		
 		// Title
 		$htmlTitle = '';
 		
 		// Init.
 		$attr = ['countryCode' => config('country.icode')];
-		$htmlTitle .= '<a href="' . lurl(trans('routes.v-search-redirect', $attr), $attr) . '" class="current">';
+		$htmlTitle .= '<a href="' . lurl(trans('routes.v-search', $attr), $attr) . '" class="current">';
 		$htmlTitle .= '<span>' . t('All ads') . '</span>';
 		$htmlTitle .= '</a>';
 		
@@ -156,10 +157,8 @@ trait TitleTrait
 		if (isset($this->isCatSearch) && $this->isCatSearch) {
 			if (isset($this->cat) && !empty($this->cat)) {
 				// SubCategory
-				$is_subCategory = false;
 				if (isset($this->isSubCatSearch) && $this->isSubCatSearch) {
 					if (isset($this->subCat) && !empty($this->subCat)) {
-						$is_subCategory = true;
 						$htmlTitle .= ' ' . t('in') . ' ';
 						
 						if (request()->filled('sc')) {
@@ -174,22 +173,20 @@ trait TitleTrait
 						$htmlTitle .= '</a>';
 					}
 				}
-				if (!$is_subCategory) {
-					$htmlTitle .= ' ' . t('in') . ' ';	
-					
-					if (request()->filled('c')) {
-						$searchUrl = qsurl($fullUrlNoParams, request()->except(['c']), null, false);
-					} else {
-						$attr = ['countryCode' => config('country.icode')];
-						$searchUrl = lurl(trans('routes.v-search-redirect', $attr), $attr);
-						dd (request()->except(['c']));
-						$searchUrl = qsurl($searchUrl, request()->except(['c']), null, false);
-					}
-					
-					$htmlTitle .= '<a rel="nofollow" class="jobs-s-tag" href="' . $searchUrl . '">';
-					$htmlTitle .= $this->cat->name;
-					$htmlTitle .= '</a>';
+				
+				$htmlTitle .= ' ' . t('in') . ' ';
+				
+				if (request()->filled('c')) {
+					$searchUrl = qsurl($fullUrlNoParams, request()->except(['c']), null, false);
+				} else {
+					$attr = ['countryCode' => config('country.icode')];
+					$searchUrl = lurl(trans('routes.v-search', $attr), $attr);
+					$searchUrl = qsurl($searchUrl, request()->except(['c']), null, false);
 				}
+				
+				$htmlTitle .= '<a rel="nofollow" class="jobs-s-tag" href="' . $searchUrl . '">';
+				$htmlTitle .= $this->cat->name;
+				$htmlTitle .= '</a>';
 			}
 		}
 		
